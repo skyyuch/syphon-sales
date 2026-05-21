@@ -1,0 +1,15 @@
+# macOS
+.DS_Store
+
+# Editor
+.vscode/
+*.swp
+
+# Confidential / sensitive
+# 若需要，可以把高度敏感的 crm 子資料夾加入這裡：
+# crm/active-deals/
+# crm/closed/
+
+# Local notes
+scratch/
+*.local.md

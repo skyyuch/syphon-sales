@@ -1,0 +1,28 @@
+---
+description: 語言與寫作風格規範（中英混合）
+alwaysApply: true
+---
+
+# 語言與風格
+
+## 與我（使用者）對話
+- **預設用繁體中文** 與我溝通、解釋、討論
+- 產品術語、產品名稱保留英文：`Syphon OS`、`Syphon Connect`、`FIX 4.4`、`A-Book / B-Book`、`NOP`、`last look`、`PoP`、`LP` 等
+- 數據與專有名詞不翻譯：`5ms`、`Sub-100ns`、`1.2M events/sec`
+
+## 對外素材（email / LinkedIn / 提案）
+- **預設用英文** 撰寫（客戶主要為國際機構）
+- 若客戶明確為中文市場（香港、台灣、星馬華語圈），改用對應中文版本
+- 語氣：professional、direct、data-led、避免行銷腔（"revolutionary"、"game-changing" 不用）
+- 多用具體數字：`12+ Tier-1 LPs`、`$1B daily volume`、`5-10 business days onboarding`
+
+## 寫作原則
+- **B2B institutional tone**：對方是 broker COO、Head of Trading、CTO，不是散戶
+- **問題導向**：先講對方的痛點，再連到我們的解法
+- **可驗證**：能引用網站、數據、案例，不要泛泛而談
+- **短句優先**：句子越短越好，段落 3-4 行為上限
+
+## 禁用詞彙
+- `revolutionary`、`disruptive`、`game-changing`、`best-in-class`（沒有證據的形容詞）
+- `cutting-edge`、`next-generation`（除非有具體技術指標支撐）
+- 中文裡的「賦能」「打通」「閉環」「生態」（工程師客戶會反感）

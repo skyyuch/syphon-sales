@@ -1,0 +1,40 @@
+---
+description: 銷售模板的使用與版本管理
+globs: templates/**
+alwaysApply: false
+---
+
+# 模板規範
+
+## 模板分類
+- `templates/email/` — Cold outreach、follow-up、proposal cover、re-engagement
+- `templates/linkedin/` — Connection request、InMail、回覆既有訊息
+- `templates/pitch/` — Pitch deck 大綱、demo 腳本、ROI 計算邏輯
+
+## 命名規範
+`<channel>/<scenario>-<audience>-<version>.md`
+
+範例：
+- `email/cold-broker-uk-v2.md`
+- `email/followup-no-reply-v1.md`
+- `linkedin/connection-request-cto-v1.md`
+- `pitch/whitelabel-demo-script-v1.md`
+
+## 模板檔案必含元素
+1. **使用情境**（什麼時候用、不該用在哪）
+2. **客戶類型**（retail broker / pop / new entrant / 等）
+3. **變數列表**（用 `{{variable}}` 標記，例：`{{first_name}}`、`{{company}}`、`{{pain_point}}`）
+4. **A/B 測試紀錄**（哪個版本回應率較高，幾月幾日測的）
+5. **模板本體**
+
+## 模板撰寫原則
+- **個性化變數至少 3 個**，不能只有 `{{first_name}}`
+- **第一句不要講我們**，要講對方
+- **CTA 明確且輕量**：「15 分鐘通話」、「回覆是 / 否」、「看一個 2 分鐘 demo」
+- **email 長度**：cold < 120 字；follow-up < 80 字
+- **LinkedIn connection note**：< 280 字符
+
+## 版本管理
+- 主版本（v1, v2）= 結構性改動
+- 小修改不開新版本，直接修
+- 每個模板底部記一行 changelog，例：`v2 (2026-05-20): 縮短 CTA、加入 ROI 數字`

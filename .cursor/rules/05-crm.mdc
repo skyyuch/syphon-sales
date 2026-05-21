@@ -1,0 +1,47 @@
+---
+description: 客戶 / 潛客資料管理規範
+globs: crm/**
+alwaysApply: false
+---
+
+# CRM 規範
+
+## 三個階段資料夾
+- `crm/prospects/` — 尚未進入正式商談的潛客
+- `crm/active-deals/` — 已有明確商機、正在推進
+- `crm/closed/` — 已成交或正式放棄（含原因）
+
+## 每位 prospect 的檔案結構
+使用 Markdown，每個檔案放一個公司。檔名：`<company-slug>.md`
+
+必須有的 frontmatter：
+```yaml
+---
+company: ABC Brokers Ltd
+website: https://abcbrokers.com
+country: UK
+type: retail-broker  # retail-broker / prop-trading / hedge-fund / pop / asset-manager / bank / psp / new-entrant
+size: 500M-1B-daily  # 估計交易量級別
+regulator: FCA
+status: prospect  # prospect / qualified / proposal / negotiating / won / lost
+first_contact: 2026-05-20
+last_contact: 2026-05-20
+owner: me
+priority: P1  # P0 / P1 / P2
+products_interested: [xsyphon-fx, syphon-connect]
+estimated_arr_usd: 80000
+---
+```
+
+## 內容章節
+1. **背景** — 公司簡介、規模、現況、痛點
+2. **關鍵人物** — 姓名、職位、LinkedIn、聯絡方式、性格筆記
+3. **互動紀錄** — 倒序時間軸（最新在上），含日期、管道、摘要
+4. **下一步** — 具體 action item 與截止日
+5. **客戶問題庫** — 對方問過、我承諾後續回覆的問題
+6. **內部備註** — 不適合對外的觀察（例：對方正在和競品談）
+
+## 隱私與安全
+- 不要在公開 git push 客戶真實聯絡方式之前，再次確認 repo 是 private
+- 不寫個人敏感資訊（身份證、銀行帳號等）
+- 提到敏感商業資訊時加 `[CONFIDENTIAL]` 標記

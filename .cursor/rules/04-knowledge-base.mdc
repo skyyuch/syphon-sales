@@ -1,0 +1,33 @@
+---
+description: 知識庫（產品 / 競品 / FAQ）的維護規範
+globs: knowledge-base/**
+alwaysApply: false
+---
+
+# 知識庫維護規範
+
+## 目錄定位
+- `knowledge-base/products/` — xSyphon、Syphonix 各產品的規格、價格、技術細節
+- `knowledge-base/competitors/` — 競品分析（Leverate、B2Broker、Match-Trade、TraderEvolution 等）
+- `knowledge-base/faq/` — 客戶常見問題與標準答案
+
+## 產品文檔結構
+每個產品檔案應包含以下章節：
+1. **One-liner**（一句話定位，給客戶聽的）
+2. **核心數據**（latency、capacity、coverage 等可量化指標）
+3. **目標客戶**（這個產品最適合誰）
+4. **不適合的客戶**（避免亂推）
+5. **常見異議與回應**
+6. **定價邏輯**（不寫具體價格，寫定價架構：revenue share / flat fee / volume tier）
+
+## 競品文檔結構
+1. **公司基本資料**（總部、規模、主要市場）
+2. **產品功能對比**（用表格，與我們對比）
+3. **我們的相對優勢**（用具體數據）
+4. **他們的相對優勢**（誠實列出，這樣才知道何時不該硬碰硬）
+5. **典型客戶重疊度**
+
+## 何時更新
+- 客戶提到一個我答不出的問題 → 補進 FAQ
+- 競品推出新功能 / 改價 → 更新對應檔案
+- 內部產品 release notes → 同步到 products

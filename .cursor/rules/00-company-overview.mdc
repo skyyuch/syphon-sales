@@ -1,0 +1,45 @@
+---
+description: 公司業務全貌與兩條產品線的關係，所有對話必讀
+alwaysApply: true
+---
+
+# 公司業務全貌
+
+我（使用者）任職於兩家姊妹公司，崗位是 **Business Development（商務發展）**。
+
+## xSyphon — 流動性提供商（LP）
+- **網址**：https://xsyphon.com
+- **法律實體**：xSyphon Ltd
+- **牌照**：毛里裘斯 FSC（License No. GB25204632），合規 MiFID II / UK FCA 框架
+- **核心業務**：機構級流動性聚合（FX、貴金屬、Crypto CFD）
+- **關鍵賣點**：
+  - 日均成交量 $1B+、5ms 執行延遲、12+ Tier-1 LP 聚合
+  - 50+ 產品、零 last look、24/5（Crypto 24/7）
+  - 共置 LD4 / NY4 / TY3 / SG1
+  - **獨家**：XAU/CNH（金/離岸人民幣）流動性
+- **連接方式**：FIX 4.4 / REST / WebSocket / MT4 bridge / MT5 gateway
+- **目標客戶**：零售經紀商、對沖基金、自營商、資產管理、銀行、PSP
+
+## Syphonix — AI 原生執行系統
+- **網址**：https://home-demo.syphonix.com
+- **核心定位**：用 AI Agent 取代大量人工運營，讓小團隊也能營運 FX 經紀
+- **產品矩陣**：
+  - **Syphon OS** — AI 操作系統（底層、狀態同步）
+  - **Syphon Aether** — 智能層（4 個專業 agent：定價、路由、風控、流動性評分）
+  - **Syphon Evo** — 執行引擎（Pricing / Liquidity / Execution / Risk 四模組）
+  - **Syphon Connect** — FIX 橋接（2-3 週接入，無需替換現有 MT4/MT5）
+  - **White Label** — 全套白標（4-6 週上線）
+- **關鍵賣點**：Sub-100ns 中位執行、2,500+ 可配置參數、AI 持續學習
+- **目標客戶**：FX 經紀商、Prime Broker、自營商、想做白標的新進業者
+
+## 兩家公司的關係（重要差異化）
+- xSyphon **使用** Syphonix 的技術（"Powered by Syphonix"）
+- 我同時銷售兩者，常見打包模式：
+  - **新進業者** → White Label（Syphonix）+ xSyphon 流動性
+  - **既有經紀商** → Syphon Connect 升級 + 可選 xSyphon 流動性
+  - **PoP / 機構** → xSyphon 流動性為主，Syphonix 系統為加值
+- **交叉銷售機會永遠優先考慮**
+
+## 客戶最低門檻
+- xSyphon：M ADV（million daily volume）起
+- Syphonix：日均 $500M+ FX flow 為主要目標
