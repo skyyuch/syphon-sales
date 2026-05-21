@@ -20,18 +20,36 @@ alwaysApply: false
 company: ABC Brokers Ltd
 website: https://abcbrokers.com
 country: UK
-type: retail-broker  # retail-broker / prop-trading / hedge-fund / pop / asset-manager / bank / psp / new-entrant
+hq_city: London
+type: retail-broker  # retail-broker / bullion-dealer / prop-trading / hedge-fund / pop / asset-manager / bank / psp / new-entrant
 size: 500M-1B-daily  # 估計交易量級別
+size_confidence: estimated  # estimated / verified
 regulator: FCA
 status: prospect  # prospect / qualified / proposal / negotiating / won / lost
-first_contact: 2026-05-20
-last_contact: 2026-05-20
+icp_fit: pure-retail  # pure-retail / cgse-bullion / new-entrant / lp-competitor-conflict / unknown
+channel_focus: retail  # retail / ib-heavy / institutional / mixed
+first_contact: 2026-05-21
+last_contact: 2026-05-21
 owner: me
 priority: P1  # P0 / P1 / P2
+playbook: existing-broker-upgrade  # 對應 playbooks/ 內的劇本檔名（不含 .md）
 products_interested: [xsyphon-fx, syphon-connect]
 estimated_arr_usd: 80000
 ---
 ```
+
+## ICP 資格檢查（建檔時必填）
+依 `knowledge-base/products/cross-sell-matrix.md` 的 ICP 規則：
+
+**xSyphon 是 LP。對方若自己也是 LP（有 Prime / Clearing / Liquidity 子品牌），xSyphon 對他們就是競品，不要推 xSyphon。**
+
+新建 prospect 前必須勾選：
+- [ ] 對方沒有自家 LP / Prime / Clearing 子品牌
+- [ ] 對方沒有對其他 broker 提供 White Label
+- [ ] 規模在 xSyphon 最低門檻（M ADV+）以上
+- [ ] 已確認對方 ICP segment
+
+若任一未通過 → `icp_fit: lp-competitor-conflict` 或 `unknown`，降級 P2 或只談純 Syphonix。
 
 ## 內容章節
 1. **背景** — 公司簡介、規模、現況、痛點
