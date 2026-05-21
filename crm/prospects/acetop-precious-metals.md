@@ -69,6 +69,15 @@ contact_tel: (852) 22768888
 
 ---
 
+## 相關檔案索引
+- **Playbook**：`playbooks/cgse-bullion-dealer.md`
+- **Campaign**：`crm/campaigns/2026-05-cgse-bullion-batch1.md`（**Position #1**，首封日 2026-05-26 二，第一個發測模板）
+- **Cold Email**：`templates/email/cgse-bullion-lp-cold-tc-v1.md` **Variant A**（XAU/CNH 為錨）
+- **Follow-up**：`templates/email/cgse-bullion-followup-tc-v1.md` Track A，**Variant A1** 已 hydrated
+- **Discovery Script**：`templates/pitch/cgse-bullion-discovery-call-tc-v1.md`（call 前 30 分鐘讀）
+- **1-Pager 附件**：`content/collateral/xau-cnh-for-cgse-bullion-1pager-tc-v1.md`（Follow-up #1 必備）
+- **Cross-sell 路徑**：LP（XAU/CNH 為錨）+ Connect 試用（次階段）
+
 ## 下一步
 - [ ] LinkedIn 找出交易部主管 + 業務發展總監（負責人：me / 截止：2026-05-28）
 - [ ] 起草**中文版** outreach v1：以 **XAU/CNH bilateral 深度** 為唯一賣點開場（負責人：me / 截止：2026-05-30）

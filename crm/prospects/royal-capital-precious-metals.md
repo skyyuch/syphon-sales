@@ -71,6 +71,16 @@ contact_tel: (852) 37537900
 
 ---
 
+## 相關檔案索引
+- **Playbook**：`playbooks/cgse-bullion-dealer.md`
+- **Campaign**：`crm/campaigns/2026-05-cgse-bullion-batch1.md`（**Position #3**，首封日 2026-06-02 二，**ICP 驗證 deadline 06-01**）
+- **Cold Email**：`templates/email/cgse-bullion-lp-cold-tc-v1.md` **Variant C**（多產品打包，集團型）
+- **Follow-up**：`templates/email/cgse-bullion-followup-tc-v1.md` Track A，**Variant C1 待 hydrated**
+- **Discovery Script**：`templates/pitch/cgse-bullion-discovery-call-tc-v1.md`
+- **1-Pager 附件**：`content/collateral/xau-cnh-for-cgse-bullion-1pager-tc-v1.md`
+- **Cross-sell 路徑**：LP + Connect 多產品打包（金 + EM FX + 未來 Crypto CFD）
+- ⚠️ **發送前 blocker**：必須先驗證皇御集團是否有 institutional / prime 業務（若有 → 取消 campaign 排程，改用 Syphonix-only 路徑）
+
 ## 下一步
 - [ ] **優先**：官網 + LinkedIn 驗證皇御集團是否有對外 LP / prime 業務（負責人：me / 截止：2026-05-26）
 - [ ] LinkedIn 找出貴金屬部總經理 + CTO（負責人：me / 截止：2026-05-30）

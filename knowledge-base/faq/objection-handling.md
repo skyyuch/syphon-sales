@@ -84,7 +84,77 @@
 
 ---
 
+---
+
+## CGSE 金商特有異議（2026-05-21 新增）
+
+> 香港金銀業貿易場 E-Trading 行員的決策節奏 + 文化與 FX broker 不同，需要不同處理。
+> 對應 playbook：`playbooks/cgse-bullion-dealer.md`、discovery script：`templates/pitch/cgse-bullion-discovery-call-tc-v1.md`
+
+### Q: 我們已經用同一家金 LP 多年，關係很穩定，不想換
+**A**:
+- 完全理解，**不是要您換** —— 是補一個獨家產品（XAU/CNH）上去
+- 新增不影響既有關係，您現有的金 LP 完全保留
+- 看 IB / 客戶反應，再決定要不要深化第二個產品
+- **這是金商最高頻異議**，必須第一句話 pre-empt「不是替換」
+
+### Q: XAU/CNH 我沒看到客戶 / IB 在問
+**A**:
+- 中國離岸人民幣資產配置近三年複合增長 ~25-30%（**這是宏觀趨勢，不是 broker-specific 需求**）
+- IB 沒主動問通常是**「沒產品所以沒辦法賣」**，不是「沒需求」
+- 我們可以提供繁中 1-pager 給您的 IB 試水，看 IB 的反饋，不需要立即決定接 LP
+- 對應素材：`content/collateral/xau-cnh-for-cgse-bullion-1pager-tc-v1.md`
+
+### Q: 我們是傳統金商，不接受 AI / 黑箱
+**A**:
+- xSyphon **是 LP 不是系統**，核心服務是給您報價 + 深度 + 結算
+- AI 是後台用來決定 maker priority，**您完全看不到**
+- 文件上沒有「AI 黑箱」字眼，您給合規看的合約就是**傳統 LP 合約**
+- （**注意**：對傳統金商，刻意不講 Syphonix 系統，純講 LP）
+
+### Q: 我們電話量太小，你們看不上
+**A**:
+- xSyphon 最低 M ADV（million daily volume），CGSE E-Trading 行員平均量級都符合
+- 我們有中小金商的**快速通道**：5-10 工作天 onboarding，傳統金 LP 通常 1-3 個月
+- 不需要承諾最低 commitment，按實際成交量結算
+
+### Q: 我們自己也對外提供 LP / Prime services
+**A**:
+- 🚩 **這是 ICP 排除信號**（依 `knowledge-base/products/cross-sell-matrix.md` 排除規則）
+- xSyphon 對對方是競品，不要 push
+- 仍可探索 **Syphonix（純系統）對話**（Connect / Evo），系統不是 LP，不直接競爭
+- Call 後標記為「ICP 排除」，未來改 Syphonix-only outreach
+
+### Q: 毛里裘斯牌照我們不太熟，CGSE 認可這個牌照嗎
+**A**:
+- FSC 等同 Tier 2 牌照，合規 MiFID II / UK FCA 框架
+- CGSE 行員與外部 LP 之間是**機構業務關係**（非散戶分發），FSC 合規足夠
+- 文件 1 週內可給您的合規 review
+- 如需更高牌照層級的 booking，可在貴司本地實體下 booking，xSyphon 作為上游 LP
+
+### Q: 一個合約接 metals + FX + Crypto？我們不做 FX 也不做 Crypto
+**A**:
+- 完全沒問題，一個 FIX session 只接金也可以，**未來想擴 FX / Crypto 時不用重簽合約**
+- 對於目前已確定方向（純金）的金商，可以先把這個彈性放著
+- 對於 1-2 年內可能擴 FX 的金商，這個架構可以省一輪 onboarding
+
+### Q: 我們的客戶都是繁中，你們有繁中支援嗎
+**A**:
+- 業務溝通、合約、KYC 文件**全套支援繁體中文**
+- 中文 1-pager / 中文 IB-facing 素材可直接 forward 給客戶
+- 中文 discovery / demo 為預設語言
+- 對應素材：`content/collateral/xau-cnh-for-cgse-bullion-1pager-tc-v1.md`（中英雙語）
+
+### Q: 我們是 CGSE 行員，你們了解金商的特殊性嗎
+**A**:
+- 我們的 BD 團隊以亞洲金商為 segment 重點，了解 CGSE E-Trading 行員結構（編號制、Loco London / 99 金 / 公斤金條合約分類）
+- 我們有針對 CGSE segment 的專屬 playbook + 對應素材（不是 FX broker 通用方案套用過來）
+- 也願意去 CGSE 行業活動 / 與貴司會員代表交流，深化對 segment 的理解
+
+---
+
 ## 待補
 - [ ] 跨境支付與結算問題（涉及 PSP 客戶）
 - [ ] 公司穩定性 / 財務狀況問題（如果客戶問）
 - [ ] 客戶資料隱私 / GDPR
+- [ ] CGSE 場內合約（人民幣公斤金條）vs xSyphon XAU/CNH OTC 的差異化解釋（leverage、結算、客戶資格）

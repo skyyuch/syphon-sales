@@ -73,6 +73,17 @@ contact_tel: (852) 39788188
 
 ---
 
+## 相關檔案索引
+- **Playbook**：`playbooks/cgse-bullion-dealer.md` + `playbooks/new-broker-launcher.md`（雙 playbook，WL 路徑借用 new-broker-launcher 邏輯）
+- **Campaign**：`crm/campaigns/2026-05-cgse-bullion-batch1.md`（**Position #5**，首封日 2026-06-09 二，**ICP 驗證 deadline 06-08**）
+- **Cold Email**：`templates/email/cgse-bullion-whitelabel-cold-tc-v1.md` **Variant Goodwill**（**WL 主推 + LP fallback**）
+- **Follow-up**：`templates/email/cgse-bullion-followup-tc-v1.md` Track B（WL track），**Variant Goodwill1** 已 hydrated
+- **Discovery Script**：`templates/pitch/cgse-bullion-discovery-call-tc-v1.md`（Pitch Narrative C：White Label）
+- **附件 #1**（WL track）：`[待製作] CGSE_Bullion_FX_Expansion_ROI_TC.xlsx`
+- **附件 #2**（LP fallback）：`content/collateral/xau-cnh-for-cgse-bullion-1pager-tc-v1.md`
+- **Cross-sell 路徑**：White Label FX 擴張 + xSyphon LP（一個合約）
+- ⚠️ **發送前 blocker**：必須先驗證信譽金是否有 FX 擴張信號（若無 → 改用 LP path 模板）
+
 ## 下一步
 - [ ] **優先**：驗證信譽金是否有 FX 業務 / 擴張新聞稿（負責人：me / 截止：2026-05-26）
   - 若**已有 FX 業務** → 改路徑為「Connect 升 A/B Book + xSyphon LP」

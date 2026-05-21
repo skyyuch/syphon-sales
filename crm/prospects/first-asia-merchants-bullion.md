@@ -68,6 +68,15 @@ contact_tel: (852) 28689919
 
 ---
 
+## 相關檔案索引
+- **Playbook**：`playbooks/cgse-bullion-dealer.md`
+- **Campaign**：`crm/campaigns/2026-05-cgse-bullion-batch1.md`（**Position #4**，首封日 2026-06-04 四）
+- **Cold Email**：`templates/email/cgse-bullion-lp-cold-tc-v1.md` **Variant D**（**最弱 CTA：要 1-pager 不是通話**，測試保守金商的回應模式）
+- **Follow-up**：`templates/email/cgse-bullion-followup-tc-v1.md` Track A，**Variant D1 待 hydrated**
+- **Discovery Script**：`templates/pitch/cgse-bullion-discovery-call-tc-v1.md`
+- **1-Pager 附件**：`content/collateral/xau-cnh-for-cgse-bullion-1pager-tc-v1.md`（**對此家是首封 CTA 的核心**，必須在 06-04 前 ready）
+- **Cross-sell 路徑**：純 LP 單一產品（XAU/CNH，最低風險試水）
+
 ## 下一步
 - [ ] LinkedIn 找出董事 + 交易部主管（負責人：me / 截止：2026-05-30）
 - [ ] CGSE 公開資料查執行司理人（負責人：me / 截止：2026-05-26）

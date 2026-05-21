@@ -68,6 +68,15 @@ contact_tel: (852) 37550922
 
 ---
 
+## 相關檔案索引
+- **Playbook**：`playbooks/cgse-bullion-dealer.md`
+- **Campaign**：`crm/campaigns/2026-05-cgse-bullion-batch1.md`（**Position #2**，首封日 2026-05-28 四）
+- **Cold Email**：`templates/email/cgse-bullion-lp-cold-tc-v1.md` **Variant B**（強調亞洲時段 SG1 深度）
+- **Follow-up**：`templates/email/cgse-bullion-followup-tc-v1.md` Track A，**Variant B1 待 hydrated**
+- **Discovery Script**：`templates/pitch/cgse-bullion-discovery-call-tc-v1.md`
+- **1-Pager 附件**：`content/collateral/xau-cnh-for-cgse-bullion-1pager-tc-v1.md`
+- **Cross-sell 路徑**：純 LP（IB-heavy，XAU/CNH 為唯一切入）
+
 ## 下一步
 - [ ] LinkedIn 找出 IB 部門主管 + 交易部主管（負責人：me / 截止：2026-05-28）
 - [ ] 起草**中文版** outreach v1：以「給你的 IB 多一個別人沒有的產品」為商業價值切入，**不要講技術**（負責人：me / 截止：2026-05-30）

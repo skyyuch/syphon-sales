@@ -38,47 +38,75 @@ syphon-sales/
 ├── knowledge-base/         # 產品 / 競品 / FAQ 知識庫
 │   ├── products/           # ★ xsyphon.md, syphonix.md, cross-sell-matrix.md
 │   ├── competitors/        # 競品研究
-│   └── faq/                # ★ objection-handling.md
-├── templates/              # 銷售模板
+│   └── faq/                # ★ objection-handling.md（含 CGSE 金商異議）
+├── templates/              # 銷售模板（可重用）
 │   ├── email/              # Cold email、follow-up
 │   ├── linkedin/           # Connection note、InMail
 │   └── pitch/              # Demo 腳本、Discovery 問題
 ├── crm/                    # 客戶資料（single source of truth）
-│   ├── prospects/          # 潛客
+│   ├── prospects/          # 潛客（單一公司 context）
 │   ├── active-deals/       # 推進中
-│   └── closed/             # 已成 / 已棄
-├── playbooks/              # 銷售劇本
+│   ├── closed/             # 已成 / 已棄
+│   └── campaigns/          # ★ 批次發送排程（跨多家的時間軸）
+├── playbooks/              # 銷售劇本（不變的策略）
 │   ├── new-broker-launcher.md
 │   ├── existing-broker-upgrade.md
-│   └── pop-institutional.md
+│   ├── pop-institutional.md
+│   └── cgse-bullion-dealer.md  # ★ HK 金銀業貿易場金商
 ├── research/               # 市場研究
 │   ├── market/
 │   ├── competitors/        # 事件追蹤（與 knowledge-base/competitors 不同）
 │   └── regulatory/
 └── content/                # 內容素材
     ├── posts/              # LinkedIn 短文
-    ├── case-studies/       # 客戶案例
-    └── insights/           # 長文洞察
+    ├── case-studies/       # 客戶案例（成單後）
+    ├── insights/           # 長文洞察
+    └── collateral/         # ★ 給 prospect 的 leave-behind（1-pager、ROI 表）
 ```
 
 ★ = 已填好內容，可直接使用
+
+### 三個關鍵分層（避免內容散落）
+
+| 層 | 資料夾 | 性質 | 變動頻率 |
+|----|--------|------|---------|
+| **策略** | `knowledge-base/` + `playbooks/` | 方法論、ICP、產品規格 | 月度 |
+| **資產** | `templates/` + `content/collateral/` | 可重用的素材 | 季度 |
+| **執行** | `crm/prospects/` + `crm/campaigns/` | 具體 prospect + 排程 | 每天 |
 
 ---
 
 ## 日常工作流程
 
-### 接觸新潛客
+### 接觸新潛客（單一）
 1. 找到對方公司 → 從 `crm/prospects/_template.md` 複製建檔
-2. 查 `knowledge-base/competitors/` 看對方目前用什麼
-3. 對照 `knowledge-base/products/cross-sell-matrix.md` 決定推什麼
-4. 從 `playbooks/<對應劇本>.md` 找首次接觸話術
-5. 從 `templates/email/` 或 `templates/linkedin/` 複用模板
-6. 互動後立即更新 `crm/prospects/<company>.md` 互動紀錄
+2. **必做：ICP 資格檢查**（依 `knowledge-base/products/cross-sell-matrix.md` 的 ICP 排除規則，特別檢查對方是否自己也是 LP）
+3. 查 `knowledge-base/competitors/` 看對方目前用什麼
+4. 對照 `cross-sell-matrix.md` 決定推什麼
+5. 從 `playbooks/<對應劇本>.md` 找首次接觸話術
+6. 從 `templates/email/` 或 `templates/linkedin/` 複用模板（可能要 hydrated variant）
+7. 在 prospect 檔案加「相關檔案索引」section，列出該家對應的所有檔案路徑
+8. 互動後立即更新 `crm/prospects/<company>.md` 互動紀錄
+
+### 批次 outreach（3+ 家同 segment）
+1. 把每家分別建 prospect 檔案（依上面流程）
+2. 建 `crm/campaigns/YYYY-MM-<segment>-<batch-name>.md`
+3. 排發送節奏（錯開週二/週四、避開週一週五下午）
+4. 完成 Master Checklist（系統 / 素材 / 內容三層）
+5. 依 calendar 執行；收回覆即脫離 cadence 進入 discovery
+6. Campaign 結束寫 retrospective + 知識庫沉澱
 
 ### 對方提了新問題我答不出
 1. 先答「讓我確認後回覆」
-2. 確認後把問答補到 `knowledge-base/faq/objection-handling.md`
+2. 確認後把問答補到 `knowledge-base/faq/objection-handling.md`（**按 segment 分類**）
 3. 若是產品規格層級，補到對應 `knowledge-base/products/*.md`
+4. 若是該 segment 普遍痛點，補到對應 `playbooks/<segment>.md` 的異議處理章節
+
+### 製作新的 prospect-facing 素材
+1. 從 `content/collateral/README.md` 看分類規範
+2. 寫 `content/collateral/<topic>-for-<audience>-<format>-<lang>-v1.md`（內容稿 + placeholder + 設計建議）
+3. 完成 4 層 pre-send checklist（內容 / 設計 / 發行 / 法務）
+4. 對應 PDF 上傳外部後，在 markdown 內標注 link / file name
 
 ### 寫 LinkedIn 內容
 1. 從 `content/README.md` 主題池選一個
