@@ -1,0 +1,61 @@
+---
+description: Git 與 GitHub 版本管理規範（提交頻率、敏感資料、分支策略）
+alwaysApply: true
+---
+
+# Git 版本管理
+
+## Repo 資訊
+- **Remote**：`git@github.com:skyyuch/syphon-sales.git`（**Private**）
+- **主分支**：`main`
+- **認證**：SSH（`~/.ssh/id_ed25519`），已通過 GitHub 認證
+- **重要**：此 repo 含真實客戶資料，**絕對不能改為 public**
+
+## 何時 Commit
+AI 在以下情境**應主動建議**我 commit（但不要自動 commit，需我同意）：
+1. 完成一個獨立任務（建立新 prospect 檔案、寫完一個 playbook、新增一批 templates）
+2. 對話結尾若有 5 個以上檔案異動
+3. 修改了任何 `.cursor/rules/` 下的 rule（變更很重要，應立即留紀錄）
+
+## 何時 Push
+- 每次 commit 後**詢問是否 push**
+- 重大變更（rules / playbooks / 新 prospect 入庫）push，避免本地檔案丟失
+- 純草稿、未確認內容可先 commit 不 push
+
+## Commit Message 格式
+英文 + 動詞開頭，簡短說明做了什麼：
+```
+Add prospect: ABC Brokers (UK retail, P1)
+Update objection-handling: PoP pricing concerns
+Refine cold-broker-generic-v1 email after A/B test
+New playbook: china-asia-broker
+Update cross-sell-matrix: add PSP segment
+```
+
+避免：
+- `update` / `fix` / `wip` 之類沒資訊的訊息
+- 一次 commit 混合多個無關變更（拆開 commit）
+
+## 敏感資料規範
+**永遠不要 commit 以下內容**：
+- 客戶真實 email / 電話（除非已在 CRM 內 frontmatter 標準欄位）
+- 內部定價、合約金額（用「ARR 範圍」描述即可）
+- 上游 LP / Prime broker 的具體 commercial 條款
+- 任何 password / API key / token / private key
+- 我個人的薪資、佣金細節
+
+**標記敏感資訊**：在檔案內若有不該外流的內容，用 `[CONFIDENTIAL]` 標籤加註。
+
+## .gitignore 已包含
+- `.DS_Store`、`.vscode/`、`*.swp`
+- `scratch/`、`*.local.md`（草稿與個人筆記）
+- 若需要把高度敏感的 CRM 子資料夾隔離本機，編輯 `.gitignore` 加入
+
+## 分支策略
+- 目前單人使用，**只用 `main`**
+- 未來若有實驗性大改（例如重寫所有 playbook），開 `experiment/<topic>` branch
+- 不用 `feature/` / `release/` 等過度結構
+
+## 緊急情況
+- 不小心 push 了敏感資料 → **立刻告訴我**，我會走 `git filter-repo` + force push + GitHub 端撤銷 token 流程
+- 不要嘗試自己解決，這是安全事件

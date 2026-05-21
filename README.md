@@ -18,6 +18,15 @@
 - `04-knowledge-base.mdc` — 知識庫維護（globs: `knowledge-base/**`）
 - `05-crm.mdc` — 客戶資料管理（globs: `crm/**`）
 - `06-templates.mdc` — 模板管理（globs: `templates/**`）
+- `07-git-versioning.mdc` — Git commit / push / 敏感資料規範
+
+---
+
+## Repo
+
+- **GitHub**：https://github.com/skyyuch/syphon-sales（**Private**，含真實客戶資料）
+- **Remote**：`git@github.com:skyyuch/syphon-sales.git`（SSH）
+- **Branch**：`main`
 
 ---
 
@@ -92,5 +101,5 @@ syphon-sales/
 - [ ] 接入 LinkedIn API 自動同步互動
 - [ ] CRM frontmatter → CSV 匯出腳本
 - [ ] 每週自動掃描「該跟進」清單的腳本
-- [ ] iFX EXPO 等行業活動參會者預掃描（如有需要）
 - [ ] Lead scoring 模型（基於 frontmatter）
+- [ ] 安裝 Xcode CLI tools + Homebrew + `gh`，方便未來 GitHub 操作

@@ -30,3 +30,10 @@ alwaysApply: true
 - 不要建立同義內容的多份檔案（DRY 原則也適用知識管理）
 - 不要在多處重複客戶聯絡資訊——CRM 是唯一真相來源（single source of truth）
 - 不要刪除歷史紀錄，用 `closed/` 或 `archive/` 歸檔
+
+## 完成任務後的 git 動作
+任何實質變更（新增檔案、改 rule、補 playbook、入庫新 prospect）完成後：
+1. **建議**我 commit（不要自動執行，要我同意）
+2. Commit message 依照 `07-git-versioning.mdc` 的格式
+3. Commit 後詢問是否 push 到 GitHub
+- 詳細規範見 `07-git-versioning.mdc`
