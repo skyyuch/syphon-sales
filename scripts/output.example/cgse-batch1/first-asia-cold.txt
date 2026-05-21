@@ -1,0 +1,30 @@
+===== READY-TO-SEND EMAIL =====
+Company        : 第一亞洲商人金融 (First Asia Merchants Bullion)
+CGSE No.       : #114
+Track          : LP  |  Variant D
+Planned send   : 2026-06-04
+Blockers       : contact_name, contact_email
+================================
+
+To: [PENDING — fill in before sending]
+From: [Your English Name] <[your.email@xsyphon.com]>
+Subject: XAU/CNH bilateral — 一個獨家產品給貴司的 IB
+
+[填入 第一亞洲商人金融 決策人姓名]您好，
+
+我是 xSyphon 的 [你的繁中姓名]。看到貴司是 CGSE E-Trading 行員（編號 114），多年穩定運營純零售金業務。
+
+我不是要建議您換現有金 LP —— 完全理解多年穩定關係的價值。直接說：xSyphon 有一個您現有 LP 拿不到的產品 —— XAU/CNH（金/離岸人民幣）bilateral 報價，毛里裘斯 FSC 持牌 LP（牌號 GB25204632）。
+
+近兩年中國 IB 客戶人民幣計價金的詢價上升明顯，本地金商普遍沒這個產品。新增一個 LP 不影響您現有的關係，給 IB 多一個賣點而已。
+
+要不要看一份 1-pager？我可以 email 過去您給 IB 試水，不需要先通話。
+
+順祝商祺，
+[你的繁中姓名]
+
+[Your English Name] ([你的繁中姓名])
+Business Development | xSyphon
+[your.email@xsyphon.com]
++852-XXXX-XXXX
+xsyphon.com

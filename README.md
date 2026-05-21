@@ -57,11 +57,16 @@ syphon-sales/
 │   ├── market/
 │   ├── competitors/        # 事件追蹤（與 knowledge-base/competitors 不同）
 │   └── regulatory/
-└── content/                # 內容素材
-    ├── posts/              # LinkedIn 短文
-    ├── case-studies/       # 客戶案例（成單後）
-    ├── insights/           # 長文洞察
-    └── collateral/         # ★ 給 prospect 的 leave-behind（1-pager、ROI 表）
+├── content/                # 內容素材
+│   ├── posts/              # LinkedIn 短文
+│   ├── case-studies/       # 客戶案例（成單後）
+│   ├── insights/           # 長文洞察
+│   └── collateral/         # ★ 給 prospect 的 leave-behind（1-pager、ROI 表、FAQ）
+│       └── assets/         # ★ 渲染版（HTML、PDF、PNG）
+└── scripts/                # ★ 自動化工具（零依賴 Python）
+    ├── mail_merge.py       # 模板 + config → 5 家 ready-to-send .txt/.html
+    ├── config.example.py   # 範例 config（commit）
+    └── output.example/     # 範例輸出（commit）
 ```
 
 ★ = 已填好內容，可直接使用
@@ -72,7 +77,7 @@ syphon-sales/
 |----|--------|------|---------|
 | **策略** | `knowledge-base/` + `playbooks/` | 方法論、ICP、產品規格 | 月度 |
 | **資產** | `templates/` + `content/collateral/` | 可重用的素材 | 季度 |
-| **執行** | `crm/prospects/` + `crm/campaigns/` | 具體 prospect + 排程 | 每天 |
+| **執行** | `crm/prospects/` + `crm/campaigns/` + `scripts/` | 具體 prospect + 排程 + 工具 | 每天 |
 
 ---
 
@@ -107,6 +112,14 @@ syphon-sales/
 2. 寫 `content/collateral/<topic>-for-<audience>-<format>-<lang>-v1.md`（內容稿 + placeholder + 設計建議）
 3. 完成 4 層 pre-send checklist（內容 / 設計 / 發行 / 法務）
 4. 對應 PDF 上傳外部後，在 markdown 內標注 link / file name
+5. 若該素材適合直接 self-host（如 1-pager），在 `content/collateral/assets/` 放 HTML（可瀏覽器列印 PDF）
+
+### 跑 mail merge / 自動化工具
+1. 看 `scripts/README.md`
+2. 第一次使用：`cp scripts/config.example.py scripts/config.py` → 編輯填入個人資訊 + 5 家聯絡人
+3. `python3 scripts/mail_merge.py` → 拿 `scripts/output/cgse-batch1/{company}-cold.txt`
+4. 開 `scripts/output/cgse-batch1/index.html` 主控台複製 body 到 Gmail compose
+5. 發送後更新 `crm/campaigns/<campaign>-tracker.csv` 的 `cold_sent_date` 欄位
 
 ### 寫 LinkedIn 內容
 1. 從 `content/README.md` 主題池選一個

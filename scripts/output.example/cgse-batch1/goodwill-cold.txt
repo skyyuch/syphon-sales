@@ -1,0 +1,41 @@
+===== READY-TO-SEND EMAIL =====
+Company        : 信譽金行 (Goodwill Gold Group)
+CGSE No.       : #050
+Track          : WL  |  Variant Goodwill
+Planned send   : 2026-06-09
+Blockers       : contact_name, contact_email, ICP 驗證 deadline 2026-06-08
+================================
+
+To: [PENDING — fill in before sending]
+From: [Your English Name] <[your.email@xsyphon.com]>
+Subject: 金商擴 FX 的最短路徑 — 給信譽金的 4-6 週方案
+
+[填入 信譽金行 決策人姓名]您好，
+
+我是 xSyphon / Syphonix 的 [你的繁中姓名]。注意到貴司是 CGSE E-Trading 行員（編號 050），信譽金在香港地鐵 / 財經媒體的品牌覆蓋很到位，IB 網絡是核心引擎。
+
+我們最近觀察到一個趨勢：CGSE 金商紛紛在嘗試擴 FX 業務。原因很直接 —— 黃金客戶量級成長遇天花板，FX 是天然延伸；同一批 IB / 同一批散戶，多賣一個產品就能放大 LTV。
+
+但金商擴 FX 的共同挑戰我們聽過很多次：
+- 沒 FX 技術（MT5 + 橋接 + 後台 + 風控自建至少 6-12 個月）
+- 沒 FX LP（從零找 Tier-1 LP 並完成 KYC 通常 3-6 個月）
+- 沒 FX 風控 know-how（金 risk ≠ FX risk）
+
+Syphonix White Label + xSyphon LP 是一個合約搞定：
+- 4-6 週上線全套 FX 平台（GUI、KYC/AML、後台、reporting）
+- 內建 xSyphon LP（12+ Tier-1 聚合，毛里裘斯 FSC 持牌）
+- 您的 IB 網絡立即可推 FX 給同一批客戶
+- Brand-fronted 白標 —— 客戶看到的是「信譽金 FX」，不是別人品牌
+
+如果信譽金目前沒有 FX 計劃，我們也可以先聊純 LP —— xSyphon 的 XAU/CNH bilateral 報價是 CGSE 金商拿不到的獨家產品，給 IB 多一個賣點。
+
+15 分鐘聊一下哪個方向更貼合貴司的 1-2 年規劃？https://calendly.com/[your-handle]/cgse-bullion-15min
+
+順祝商祺，
+[你的繁中姓名]
+
+[Your English Name] ([你的繁中姓名])
+Business Development | xSyphon
+[your.email@xsyphon.com]
++852-XXXX-XXXX
+xsyphon.com

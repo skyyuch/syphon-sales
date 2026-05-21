@@ -77,6 +77,10 @@ contact_tel: (852) 22768888
 - **Discovery Script**：`templates/pitch/cgse-bullion-discovery-call-tc-v1.md`（call 前 30 分鐘讀）
 - **1-Pager 附件**：`content/collateral/xau-cnh-for-cgse-bullion-1pager-tc-v1.md`（Follow-up #1 必備）
 - **Cross-sell 路徑**：LP（XAU/CNH 為錨）+ Connect 試用（次階段）
+- **研究 toolkit**：`crm/campaigns/2026-05-cgse-bullion-batch1-toolkit.md`（LinkedIn / Hunter.io / Google search 集合）
+- **追蹤試算表**：`crm/campaigns/2026-05-cgse-bullion-batch1-tracker.csv`
+- **Mail merge 輸出範例**：`scripts/output.example/cgse-batch1/acetop-cold.{txt,html}` + `index.html` 主控台
+- **1-Pager 渲染版（列印 PDF）**：`content/collateral/assets/xau-cnh-1pager-tc-v1.html`
 
 ## 下一步
 - [ ] LinkedIn 找出交易部主管 + 業務發展總監（負責人：me / 截止：2026-05-28）

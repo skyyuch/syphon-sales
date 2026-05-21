@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<title>XAU/CNH — for HK Bullion Dealers | xSyphon</title>
+<style>
+/* ===== Print / Page setup ===== */
+@page {
+  size: A4 portrait;
+  margin: 0;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang TC", "Noto Sans CJK TC",
+               "Microsoft JhengHei", "蘋方-繁", "思源黑體", "Heiti TC", sans-serif;
+  color: #1A2B4A;
+  background: #E8E8E8;
+  font-size: 11pt;
+  line-height: 1.5;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* ===== Page container ===== */
+.page {
+  width: 210mm;
+  height: 297mm;
+  padding: 18mm 16mm;
+  margin: 12mm auto;
+  background: #FAF8F4;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  page-break-after: always;
+  position: relative;
+  overflow: hidden;
+}
+
+.page:last-child { page-break-after: auto; }
+
+@media print {
+  html, body { background: white; }
+  .page { margin: 0; box-shadow: none; }
+}
+
+/* ===== Color palette ===== */
+:root {
+  --navy: #1A2B4A;
+  --navy-light: #2D4A7C;
+  --gold: #C9A961;
+  --gold-light: #E5C98A;
+  --red: #B33A3A;
+  --bg: #FAF8F4;
+  --grey: #6B6B6B;
+  --grey-light: #DDD;
+}
+
+/* ===== Header / Hero ===== */
+header { border-bottom: 3px solid var(--gold); padding-bottom: 12pt; margin-bottom: 16pt; }
+.brand-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14pt; }
+.brand { font-size: 14pt; font-weight: 700; letter-spacing: 1px; color: var(--navy); }
+.brand .accent { color: var(--gold); }
+.lang-tag { font-size: 9pt; color: var(--grey); letter-spacing: 1px; }
+
+h1 { font-size: 26pt; line-height: 1.25; color: var(--navy); margin-bottom: 6pt; font-weight: 700; }
+h1 .highlight { color: var(--red); }
+.subtitle { font-size: 13pt; color: var(--navy-light); line-height: 1.45; }
+.subtitle strong { color: var(--red); }
+
+/* ===== Hero metric box ===== */
+.hero-metrics { display: flex; gap: 8pt; margin: 16pt 0 18pt; }
+.metric {
+  flex: 1;
+  border: 1.5pt solid var(--gold);
+  padding: 10pt 8pt;
+  text-align: center;
+  background: rgba(201,169,97,0.05);
+}
+.metric .label { font-size: 8.5pt; color: var(--grey); letter-spacing: 0.5px; margin-bottom: 4pt; text-transform: uppercase; }
+.metric .value { font-size: 14pt; font-weight: 700; color: var(--navy); }
+.metric .value .small { font-size: 9pt; font-weight: 400; color: var(--grey); display: block; }
+
+/* ===== Sections ===== */
+section { margin-bottom: 14pt; }
+h2 {
+  font-size: 13pt;
+  color: var(--navy);
+  border-left: 3pt solid var(--gold);
+  padding-left: 8pt;
+  margin-bottom: 8pt;
+  font-weight: 700;
+}
+p { font-size: 10.5pt; margin-bottom: 6pt; }
+p strong { color: var(--navy); }
+.footnote { font-size: 8pt; color: var(--grey); margin-top: 4pt; font-style: italic; }
+
+/* ===== Comparison table ===== */
+table.compare { width: 100%; border-collapse: collapse; font-size: 9.5pt; margin: 6pt 0; }
+table.compare th, table.compare td { padding: 5pt 6pt; border: 0.5pt solid var(--grey-light); text-align: left; vertical-align: top; }
+table.compare th { background: var(--navy); color: white; font-weight: 600; }
+table.compare tr td:first-child { font-weight: 600; color: var(--navy); width: 28%; }
+table.compare tr td:nth-child(2) { background: rgba(201,169,97,0.08); }
+table.compare .highlight-cell { color: var(--red); font-weight: 700; }
+
+/* ===== Bullets ===== */
+ul.tight { list-style: none; padding-left: 0; }
+ul.tight li { padding-left: 16pt; position: relative; margin-bottom: 5pt; font-size: 10pt; }
+ul.tight li::before {
+  content: "▸"; color: var(--gold); position: absolute; left: 0; font-weight: 700;
+}
+
+/* ===== For Your IB block ===== */
+.for-ib {
+  background: var(--navy);
+  color: white;
+  padding: 12pt 14pt;
+  margin: 12pt 0;
+}
+.for-ib h2 { color: var(--gold-light); border-left-color: var(--gold); }
+.for-ib p { color: rgba(255,255,255,0.9); }
+.for-ib ul.tight li { color: white; }
+.for-ib ul.tight li::before { color: var(--gold-light); }
+
+/* ===== CTA / footer ===== */
+.cta-block {
+  border: 2pt solid var(--gold);
+  padding: 10pt 14pt;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 14pt;
+}
+.cta-text { flex: 1; }
+.cta-text h3 { font-size: 12pt; color: var(--navy); margin-bottom: 4pt; }
+.cta-text p { font-size: 9.5pt; margin: 0; color: var(--navy-light); }
+.cta-qr {
+  width: 70pt;
+  height: 70pt;
+  border: 1pt dashed var(--grey);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 8pt;
+  color: var(--grey);
+  text-align: center;
+  margin-left: 12pt;
+}
+
+footer {
+  position: absolute;
+  bottom: 10mm;
+  left: 16mm;
+  right: 16mm;
+  font-size: 8pt;
+  color: var(--grey);
+  border-top: 0.5pt solid var(--grey-light);
+  padding-top: 6pt;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* ===== Placeholder badge ===== */
+.todo {
+  background: #FFE082;
+  color: #B33A3A;
+  padding: 0 4pt;
+  font-size: 8.5pt;
+  border-radius: 2pt;
+  font-style: italic;
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================================ -->
+<!-- 正面：繁體中文                                                 -->
+<!-- ============================================================ -->
+<div class="page">
+
+  <header>
+    <div class="brand-row">
+      <div class="brand">x<span class="accent">Syphon</span> · INSTITUTIONAL LIQUIDITY</div>
+      <div class="lang-tag">繁體中文 · v1 · 2026 Q2</div>
+    </div>
+    <h1>XAU/CNH — 給香港金商的<span class="highlight">獨家機會</span></h1>
+    <p class="subtitle">中國離岸人民幣計價 loco London 金，<strong>bilateral 雙邊報價</strong>，不是 cross 合成。</p>
+  </header>
+
+  <div class="hero-metrics">
+    <div class="metric">
+      <div class="label">報價類型</div>
+      <div class="value">Bilateral<span class="small">雙邊直接報價</span></div>
+    </div>
+    <div class="metric">
+      <div class="label">Onboarding</div>
+      <div class="value">5–10 天<span class="small">工作天</span></div>
+    </div>
+    <div class="metric">
+      <div class="label">最低 ticket</div>
+      <div class="value"><span class="todo">50g 起</span><span class="small">需產品團隊確認</span></div>
+    </div>
+  </div>
+
+  <section>
+    <h2>為什麼您的 IB 開始問人民幣金</h2>
+    <p>中國離岸人民幣（CNH）資產配置近三年複合增長率約 <span class="todo">25–30%</span>，香港作為 CNH 最大離岸中心，存款規模超過 <span class="todo">8,000 億 RMB</span>。</p>
+    <p>亞洲零售投資者對「人民幣計價 + 倫敦金深度」的雙重需求顯著上升 —— 既要對沖人民幣貶值風險，又要 loco London 流動性。</p>
+    <p>但本地金商普遍給不出 XAU/CNH 的 <strong>bilateral 直接報價</strong>，多數方案是 XAU/USD × USD/CNH 的 cross 合成，spread 寬、深度薄。</p>
+    <p class="footnote">數據來源：SWIFT RMB Tracker 2026 Q1 / HKMA CNH Deposit Statistics（待 2026 H2 數據更新）</p>
+  </section>
+
+  <section>
+    <h2>xSyphon XAU/CNH 規格</h2>
+    <table class="compare">
+      <thead><tr><th>維度</th><th>xSyphon XAU/CNH</th><th>市場常見 cross 合成</th></tr></thead>
+      <tbody>
+        <tr><td>報價類型</td><td class="highlight-cell">Bilateral 雙邊</td><td>XAU/USD × USD/CNH</td></tr>
+        <tr><td>典型 spread</td><td><span class="todo">$X.XX / oz</span></td><td><span class="todo">$Y.YY / oz</span></td></tr>
+        <tr><td>深度（SG1 亞洲時段）</td><td><span class="todo">top-of-book $X kg</span></td><td>散布兩 leg，不穩定</td></tr>
+        <tr><td>Last look</td><td class="highlight-cell">零</td><td>視 LP</td></tr>
+        <tr><td>24h 報價</td><td>是</td><td>視 LP 拼接</td></tr>
+        <tr><td>結算</td><td>T+2</td><td>T+2</td></tr>
+      </tbody>
+    </table>
+    <p class="footnote">Co-location：LD4 / NY4 / TY3 / <strong>SG1（新加坡，亞洲時段最深）</strong></p>
+  </section>
+
+  <section class="for-ib">
+    <h2>給貴司 IB 多一個別人沒有的賣點</h2>
+    <p>中國 IB 客戶持續詢問人民幣計價的離岸金產品。本地金商若能提供 <strong>bilateral XAU/CNH</strong>（而非 cross 合成），等於給 IB 一個新的差異化故事 —— 既不影響既有金業務，又拉新客戶 / 留住舊客戶。</p>
+    <ul class="tight">
+      <li>新增到既有金商品列表，<strong>不替換</strong>任何現有 LP</li>
+      <li>給 IB 推 marketing material（中文版可直接 forward 給終端客戶）</li>
+      <li>Bilateral spread 比合成穩定，IB 可給客戶承諾「無 widening surprise」</li>
+    </ul>
+  </section>
+
+  <div class="cta-block">
+    <div class="cta-text">
+      <h3>想看一份貴司的 connectivity proposal？</h3>
+      <p>給我們大致的 daily 金 volume + IB 結構 → 24 小時內收到 tailored 報價樣本</p>
+      <p>或 15 分鐘簡短電話 →</p>
+    </div>
+    <div class="cta-qr">[Calendly<br>QR<br>placeholder]</div>
+  </div>
+
+  <footer>
+    <span>xSyphon Ltd · Mauritius FSC GB25204632 · MiFID II / UK FCA aligned</span>
+    <span>xsyphon.com · 1/2</span>
+  </footer>
+
+</div>
+
+
+<!-- ============================================================ -->
+<!-- 背面：English                                                  -->
+<!-- ============================================================ -->
+<div class="page">
+
+  <header>
+    <div class="brand-row">
+      <div class="brand">x<span class="accent">Syphon</span> · INSTITUTIONAL LIQUIDITY</div>
+      <div class="lang-tag">ENGLISH · v1 · 2026 Q2</div>
+    </div>
+    <h1>XAU/CNH — Exclusive Opportunity for <span class="highlight">HK Bullion Dealers</span></h1>
+    <p class="subtitle">Offshore CNY-denominated loco London Gold. <strong>Bilateral pricing, not synthetic cross.</strong></p>
+  </header>
+
+  <div class="hero-metrics">
+    <div class="metric">
+      <div class="label">Pricing</div>
+      <div class="value">Bilateral<span class="small">direct two-way</span></div>
+    </div>
+    <div class="metric">
+      <div class="label">Onboarding</div>
+      <div class="value">5–10 days<span class="small">business days</span></div>
+    </div>
+    <div class="metric">
+      <div class="label">Min ticket</div>
+      <div class="value"><span class="todo">50g+</span><span class="small">to be confirmed</span></div>
+    </div>
+  </div>
+
+  <section>
+    <h2>Why your IBs are starting to ask for CNH-priced gold</h2>
+    <p>The offshore CNY (CNH) asset allocation pool has grown at <span class="todo">~25–30% CAGR</span> over the past three years. Hong Kong, as the largest CNH offshore center, holds over <span class="todo">RMB 800B</span> in CNH deposits.</p>
+    <p>Asian retail investors increasingly demand <strong>CNH-denominated loco London gold</strong> — they want both yuan-hedging optics and London-grade liquidity in a single product.</p>
+    <p>But most bullion dealers can't offer <strong>bilateral XAU/CNH pricing</strong>. The common workaround — synthesizing via XAU/USD × USD/CNH — produces wider spreads and fragmented depth.</p>
+    <p class="footnote">Sources: SWIFT RMB Tracker 2026 Q1, HKMA CNH Deposit Statistics (subject to 2026 H2 refresh)</p>
+  </section>
+
+  <section>
+    <h2>xSyphon XAU/CNH Specifications</h2>
+    <table class="compare">
+      <thead><tr><th>Dimension</th><th>xSyphon XAU/CNH</th><th>Synthetic Cross</th></tr></thead>
+      <tbody>
+        <tr><td>Pricing</td><td class="highlight-cell">Bilateral</td><td>XAU/USD × USD/CNH</td></tr>
+        <tr><td>Typical spread</td><td><span class="todo">$X.XX</span></td><td><span class="todo">$Y.YY</span></td></tr>
+        <tr><td>Depth (SG1, Asia)</td><td><span class="todo">$X kg top-of-book</span></td><td>Split across legs</td></tr>
+        <tr><td>Last look</td><td class="highlight-cell">None</td><td>LP-dependent</td></tr>
+        <tr><td>24h streaming</td><td>Yes</td><td>LP-dependent</td></tr>
+        <tr><td>Settlement</td><td>T+2</td><td>T+2</td></tr>
+      </tbody>
+    </table>
+    <p class="footnote">Co-location: LD4 / NY4 / TY3 / <strong>SG1 (deepest in Asia hours)</strong></p>
+  </section>
+
+  <section class="for-ib">
+    <h2>A new story for your sales team</h2>
+    <p>Mainland Chinese IBs are increasingly asked for offshore CNY-denominated gold products. Bullion dealers offering <strong>bilateral XAU/CNH</strong> (not synthetic) give their IBs a differentiated narrative — adding a new revenue stream without disrupting existing gold flow.</p>
+    <ul class="tight">
+      <li>Adds to your existing product list, <strong>replaces nothing</strong></li>
+      <li>IBs receive branded marketing collateral (Traditional Chinese version available)</li>
+      <li>Bilateral spread is stable — IBs can promise clients "no widening surprise"</li>
+    </ul>
+  </section>
+
+  <div class="cta-block">
+    <div class="cta-text">
+      <h3>Want a connectivity proposal tailored to your flow?</h3>
+      <p>Share rough daily gold volume + IB structure → indicative pricing within 24h</p>
+      <p>Or a 15-min call →</p>
+    </div>
+    <div class="cta-qr">[Calendly<br>QR<br>placeholder]</div>
+  </div>
+
+  <footer>
+    <span>xSyphon Ltd · Mauritius FSC GB25204632 · For Informational Purposes Only · Subject to Final Agreement</span>
+    <span>xsyphon.com · 2/2</span>
+  </footer>
+
+</div>
+
+</body>
+</html>

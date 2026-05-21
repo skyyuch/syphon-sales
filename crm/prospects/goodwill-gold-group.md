@@ -83,6 +83,10 @@ contact_tel: (852) 39788188
 - **附件 #2**（LP fallback）：`content/collateral/xau-cnh-for-cgse-bullion-1pager-tc-v1.md`
 - **Cross-sell 路徑**：White Label FX 擴張 + xSyphon LP（一個合約）
 - ⚠️ **發送前 blocker**：必須先驗證信譽金是否有 FX 擴張信號（若無 → 改用 LP path 模板）
+- **研究 toolkit**：`crm/campaigns/2026-05-cgse-bullion-batch1-toolkit.md`（**含 FX 擴張信號驗證 search URL**）
+- **追蹤試算表**：`crm/campaigns/2026-05-cgse-bullion-batch1-tracker.csv`
+- **Mail merge 輸出範例**：`scripts/output.example/cgse-batch1/goodwill-cold.{txt,html}`（**WL Variant**） + `index.html` 主控台
+- **1-Pager 渲染版（LP fallback 用）**：`content/collateral/assets/xau-cnh-1pager-tc-v1.html`
 
 ## 下一步
 - [ ] **優先**：驗證信譽金是否有 FX 業務 / 擴張新聞稿（負責人：me / 截止：2026-05-26）

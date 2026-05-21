@@ -1,0 +1,34 @@
+===== READY-TO-SEND EMAIL =====
+Company        : 皇御金融 (Royal Capital Precious Metals)
+CGSE No.       : #076
+Track          : LP  |  Variant C
+Planned send   : 2026-06-02
+Blockers       : contact_name, contact_email, ICP 驗證 deadline 2026-06-01
+================================
+
+To: [PENDING — fill in before sending]
+From: [Your English Name] <[your.email@xsyphon.com]>
+Subject: 金 + EM FX 統一報價 — 給皇御集團的 LP 打包方案
+
+[填入 皇御金融 決策人姓名]您好，
+
+我是 xSyphon 的 [你的繁中姓名]。注意到貴司是 CGSE E-Trading 行員（編號 076），皇御集團涵蓋貴金屬 + 證券 + 期貨多元金融線。
+
+集團型金商常見的痛點是金 / FX / 未來 Crypto CFD 各用一套 LP + 一套執行邏輯，運維成本高。xSyphon 一個 FIX session 可接 metals + EM FX + Crypto CFD：
+- XAU/CNH bilateral（獨家，給中國 IB 客戶新賣點）
+- EM FX（USD/CNH、USD/HKD 完整深度）
+- 毛里裘斯 FSC 持牌（牌號 GB25204632）
+- Onboarding 5-10 個工作天
+
+先從 XAU/CNH 一個產品試接看 IB 反應，跑順了再擴展。15 分鐘討論可行性？
+
+https://calendly.com/[your-handle]/cgse-bullion-15min
+
+順祝商祺，
+[你的繁中姓名]
+
+[Your English Name] ([你的繁中姓名])
+Business Development | xSyphon
+[your.email@xsyphon.com]
++852-XXXX-XXXX
+xsyphon.com

@@ -76,6 +76,10 @@ contact_tel: (852) 37550922
 - **Discovery Script**：`templates/pitch/cgse-bullion-discovery-call-tc-v1.md`
 - **1-Pager 附件**：`content/collateral/xau-cnh-for-cgse-bullion-1pager-tc-v1.md`
 - **Cross-sell 路徑**：純 LP（IB-heavy，XAU/CNH 為唯一切入）
+- **研究 toolkit**：`crm/campaigns/2026-05-cgse-bullion-batch1-toolkit.md`
+- **追蹤試算表**：`crm/campaigns/2026-05-cgse-bullion-batch1-tracker.csv`
+- **Mail merge 輸出範例**：`scripts/output.example/cgse-batch1/plotio-cold.{txt,html}` + `index.html` 主控台
+- **1-Pager 渲染版（列印 PDF）**：`content/collateral/assets/xau-cnh-1pager-tc-v1.html`
 
 ## 下一步
 - [ ] LinkedIn 找出 IB 部門主管 + 交易部主管（負責人：me / 截止：2026-05-28）

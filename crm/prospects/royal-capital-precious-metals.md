@@ -80,6 +80,10 @@ contact_tel: (852) 37537900
 - **1-Pager 附件**：`content/collateral/xau-cnh-for-cgse-bullion-1pager-tc-v1.md`
 - **Cross-sell 路徑**：LP + Connect 多產品打包（金 + EM FX + 未來 Crypto CFD）
 - ⚠️ **發送前 blocker**：必須先驗證皇御集團是否有 institutional / prime 業務（若有 → 取消 campaign 排程，改用 Syphonix-only 路徑）
+- **研究 toolkit**：`crm/campaigns/2026-05-cgse-bullion-batch1-toolkit.md`（**含 ICP 驗證專用 search URL**）
+- **追蹤試算表**：`crm/campaigns/2026-05-cgse-bullion-batch1-tracker.csv`
+- **Mail merge 輸出範例**：`scripts/output.example/cgse-batch1/royal-capital-cold.{txt,html}` + `index.html` 主控台
+- **1-Pager 渲染版（列印 PDF）**：`content/collateral/assets/xau-cnh-1pager-tc-v1.html`
 
 ## 下一步
 - [ ] **優先**：官網 + LinkedIn 驗證皇御集團是否有對外 LP / prime 業務（負責人：me / 截止：2026-05-26）

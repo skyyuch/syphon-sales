@@ -76,6 +76,10 @@ contact_tel: (852) 28689919
 - **Discovery Script**：`templates/pitch/cgse-bullion-discovery-call-tc-v1.md`
 - **1-Pager 附件**：`content/collateral/xau-cnh-for-cgse-bullion-1pager-tc-v1.md`（**對此家是首封 CTA 的核心**，必須在 06-04 前 ready）
 - **Cross-sell 路徑**：純 LP 單一產品（XAU/CNH，最低風險試水）
+- **研究 toolkit**：`crm/campaigns/2026-05-cgse-bullion-batch1-toolkit.md`
+- **追蹤試算表**：`crm/campaigns/2026-05-cgse-bullion-batch1-tracker.csv`
+- **Mail merge 輸出範例**：`scripts/output.example/cgse-batch1/first-asia-cold.{txt,html}` + `index.html` 主控台
+- **1-Pager 渲染版（列印 PDF）**：`content/collateral/assets/xau-cnh-1pager-tc-v1.html` ← **此家首封 CTA 的核心，必須在 06-04 前 ready**
 
 ## 下一步
 - [ ] LinkedIn 找出董事 + 交易部主管（負責人：me / 截止：2026-05-30）

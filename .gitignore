@@ -13,3 +13,18 @@
 # Local notes
 scratch/
 *.local.md
+
+# Python venv (scripts deps)
+.venv/
+__pycache__/
+*.pyc
+
+# Generated outreach artifacts (re-generatable from scripts/)
+dist/
+!dist/README.md
+
+# Mail merge local config + output (含真實聯絡人 email，敏感)
+scripts/config.py
+scripts/output/
+# 但 output.example/ 仍 commit，做為示範
+!scripts/output.example/

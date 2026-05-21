@@ -1,0 +1,30 @@
+===== READY-TO-SEND EMAIL =====
+Company        : 百利好金融 (Plotio Bullion)
+CGSE No.       : #126
+Track          : LP  |  Variant B
+Planned send   : 2026-05-28
+Blockers       : contact_name, contact_email
+================================
+
+To: [PENDING — fill in before sending]
+From: [Your English Name] <[your.email@xsyphon.com]>
+Subject: XAU/CNH bilateral 報價 — 給百利好 IB 的差異化新產品
+
+[填入 百利好金融 決策人姓名]您好，
+
+我是 xSyphon 的 [你的繁中姓名]。注意到貴司是 CGSE E-Trading 行員（編號 126），百利好品牌在香港地鐵 / 財經媒體的覆蓋很到位，IB 引介人網絡是核心增長引擎。
+
+直接說重點：xSyphon 是毛里裘斯 FSC 持牌 LP（牌號 GB25204632），XAU/CNH（金/離岸人民幣）是我們的獨家 bilateral 報價，不是 cross 合成。亞洲時段（SG1 co-located）我們的深度比歐美 LP 更穩 —— 這是貴司 IB 客戶最活躍的時段。
+
+如果貴司願意給 IB 多一個別人沒有的賣點，我可以 24 小時內準備一份 connectivity proposal —— 只需要您給個大概的 daily 金 volume + IB 結構。Onboarding 5-10 個工作天。
+
+或 15 分鐘簡單聊聊：https://calendly.com/[your-handle]/cgse-bullion-15min
+
+順祝商祺，
+[你的繁中姓名]
+
+[Your English Name] ([你的繁中姓名])
+Business Development | xSyphon
+[your.email@xsyphon.com]
++852-XXXX-XXXX
+xsyphon.com

@@ -1,0 +1,30 @@
+===== READY-TO-SEND EMAIL =====
+Company        : 領峰貴金屬 (Acetop Precious Metals)
+CGSE No.       : #145
+Track          : LP  |  Variant A
+Planned send   : 2026-05-26
+Blockers       : contact_name, contact_email
+================================
+
+To: [PENDING — fill in before sending]
+From: [Your English Name] <[your.email@xsyphon.com]>
+Subject: XAU/CNH bilateral 報價 — 給領峰多一個 IB 賣點
+
+[填入 領峰貴金屬 決策人姓名]您好，
+
+我是 xSyphon 的 [你的繁中姓名]。注意到貴司是 CGSE E-Trading 行員（編號 145），近幾年在零售金商品牌投入相對積極，IB 網絡覆蓋香港 + 中國 + 東南亞華人圈。
+
+直接說重點：xSyphon 是毛里裘斯 FSC 持牌 LP（牌號 GB25204632），XAU/CNH（金/離岸人民幣）是我們的獨家 bilateral 報價，不是 cross 合成。據我們觀察，中國 IB 客戶近兩年對人民幣計價金的詢價明顯上升，但本地金商普遍拿不到深度。
+
+如果貴司願意給 IB 多一個別人沒有的賣點，我可以 24 小時內準備一份 connectivity proposal —— 只需要您給個大概的 daily 金 volume + IB 結構。Onboarding 5-10 個工作天。
+
+或 15 分鐘簡單聊聊：https://calendly.com/[your-handle]/cgse-bullion-15min
+
+順祝商祺，
+[你的繁中姓名]
+
+[Your English Name] ([你的繁中姓名])
+Business Development | xSyphon
+[your.email@xsyphon.com]
++852-XXXX-XXXX
+xsyphon.com
