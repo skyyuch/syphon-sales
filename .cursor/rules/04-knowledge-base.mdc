@@ -10,6 +10,7 @@ alwaysApply: false
 - `knowledge-base/products/` — xSyphon、Syphonix 各產品的規格、價格、技術細節
 - `knowledge-base/competitors/` — 競品分析（Leverate、B2Broker、Match-Trade、TraderEvolution 等）
 - `knowledge-base/faq/` — 客戶常見問題與標準答案
+- `knowledge-base/expo/` — 展會素材技術參考（微網站、行情接法、booth checklist）
 
 ## 產品文檔結構
 每個產品檔案應包含以下章節：

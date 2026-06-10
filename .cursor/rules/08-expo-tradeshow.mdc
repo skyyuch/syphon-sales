@@ -1,0 +1,33 @@
+---
+description: 展會 / trade-show 準備的流程與紅線（素材、微網站、即時數據、合規）
+alwaysApply: true
+---
+
+# 展會準備規範
+
+適用於 iFX EXPO、行業展會的攤位素材、互動微網站、Demo 準備。細節技術文件見 `knowledge-base/expo/`。
+
+## 素材製作流程
+- **展會微網站獨立成 repo**（例：iFX Cyprus 2026 → `skyyuch/Cyprus`），不放進 `syphon-sales`。
+- **git 是單一真相**。不要再從 AI Studio / 設計工具 re-export 整包覆蓋，會洗掉已套用的合規與修正。要改就在 repo 內 diff。
+- 視覺對齊官網：近黑底 `#060807` + 螢光綠 `#3ddc6c`，金色僅用於 XAU 類亮點。
+- 手機優先（訪客掃 QR）＋ iPad 橫向 kiosk；做 PWA 可離線備援。
+
+## 即時數據（行情）
+- 用 **GTS2 Socket.IO v4**，guest `addme('Guest','Guest',128)` 即可唯讀訂閱，**不需 API key**。
+- tick 是 firehose，前端務必**節流**（~3 次/秒）再進畫面，否則會卡。
+- 接法、端點、商品 codeID 對照表 → `knowledge-base/expo/cyprus-2026-microsite.md`。
+
+## 合規紅線（對外公開素材）
+- **絕不**把內部端點、`.env` 密鑰、API key 寫進公開 bundle / 公開 repo。要用真端點前先確認可公開曝光。
+- LP / 上游銀行**一律匿名化**（LP-01…），不放第三方商標。
+- 數字對齊官網與 KB，**禁止杜撰** latency / volume / fill / spread；模擬數據要標「illustrative」。
+- 頁尾加免責：`For institutional and professional clients only` + FSC 牌照行 + 風險聲明。
+- 合規敏感（牌照、跨境、稅務）只標記、不給法律建議，讓我問合規團隊。
+
+## 交付與現場
+- 交付 checklist（部署、QR、iPad kiosk、表單/Calendly/vCard）見 KB doc。
+- 現場網路不穩 → 真行情會斷，需 PWA 離線備援或穩定 4G。
+
+## 完成後
+- 改了本 rule 或 KB → 依 `07-git-versioning` **建議我 commit**，並詢問是否 push。
