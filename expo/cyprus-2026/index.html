@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#060807">
+<title>xSyphon — Institutional Liquidity · Live at iFX EXPO Cyprus 2026</title>
+<meta name="description" content="AI-driven institutional liquidity for FX, precious metals and crypto CFDs. Deep aggregation, zero last look, 5ms execution. Meet xSyphon at iFX EXPO Cyprus 2026.">
+<link rel="icon" href="assets/xsyphon-logo.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="xSyphon">
+<style>
+:root{
+  --bg:#060807; --bg2:#0a0f0b; --panel:#0c1410; --panel2:#0e1712;
+  --line:rgba(61,220,108,.14); --line2:rgba(255,255,255,.06);
+  --green:#3ddc6c; --green-bright:#5ce880; --green-dim:#28a84e; --green-deep:#1a4d2e;
+  --red:#e05a5a; --gold:#c9a96e; --blue:#6aa0e8;
+  --text:#e9f5ec; --muted:#8fa79a; --muted2:#5f7268;
+  --mono:ui-monospace,"SF Mono","SFMono-Regular",Menlo,Consolas,"Liberation Mono",monospace;
+  --sans:-apple-system,BlinkMacSystemFont,"Inter","Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --maxw:1180px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:var(--sans); color:var(--text); background:var(--bg);
+  line-height:1.55; overflow-x:hidden; -webkit-font-smoothing:antialiased;
+  background-image:
+    radial-gradient(1200px 600px at 78% -8%, rgba(61,220,108,.12), transparent 60%),
+    radial-gradient(900px 500px at -10% 12%, rgba(61,220,108,.06), transparent 55%),
+    linear-gradient(180deg,#070d09 0%, var(--bg) 38%);
+  background-attachment:fixed;
+}
+body::before{
+  content:""; position:fixed; inset:0; pointer-events:none; z-index:0; opacity:.5;
+  background-image:linear-gradient(rgba(61,220,108,.045) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(61,220,108,.045) 1px,transparent 1px);
+  background-size:46px 46px; mask-image:radial-gradient(circle at 50% 30%,#000,transparent 85%);
+}
+.wrap{max-width:var(--maxw); margin:0 auto; padding:0 22px; position:relative; z-index:1}
+a{color:inherit;text-decoration:none}
+.mono{font-family:var(--mono)}
+.green{color:var(--green)}
+.gold{color:var(--gold)}
+
+/* ===== top bar ===== */
+.topbar{
+  position:sticky; top:0; z-index:50; display:flex; align-items:center; gap:18px;
+  padding:13px 22px; backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
+  background:linear-gradient(180deg,rgba(6,8,7,.92),rgba(6,8,7,.66));
+  border-bottom:1px solid var(--line);
+}
+.logo{height:26px; width:auto; filter:invert(1) brightness(2.2); flex:0 0 auto}
+.event-pill{
+  display:inline-flex; align-items:center; gap:8px; font-size:12.5px; letter-spacing:.2px;
+  padding:6px 12px; border:1px solid var(--line); border-radius:999px; color:var(--muted);
+  background:rgba(61,220,108,.05);
+}
+.event-pill b{color:var(--green); font-weight:600}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 0 0 rgba(61,220,108,.6);animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(61,220,108,.5)}70%{box-shadow:0 0 0 8px rgba(61,220,108,0)}100%{box-shadow:0 0 0 0 rgba(61,220,108,0)}}
+.topbar .spacer{flex:1}
+.btn{
+  display:inline-flex; align-items:center; gap:8px; font-family:var(--sans); font-size:14px; font-weight:600;
+  padding:10px 18px; border-radius:10px; cursor:pointer; border:1px solid transparent; transition:.18s ease; white-space:nowrap;
+}
+.btn-primary{background:var(--green); color:#04140a; box-shadow:0 6px 24px rgba(61,220,108,.25)}
+.btn-primary:hover{background:var(--green-bright); transform:translateY(-1px); box-shadow:0 10px 30px rgba(61,220,108,.35)}
+.btn-ghost{background:transparent; color:var(--text); border-color:var(--line)}
+.btn-ghost:hover{border-color:var(--green); color:var(--green)}
+.topbar .btn{padding:9px 15px}
+
+/* ===== ticker ===== */
+.ticker{
+  border-bottom:1px solid var(--line); background:rgba(4,6,5,.7); overflow:hidden; position:sticky; top:53px; z-index:40;
+  display:flex; align-items:center; height:38px;
+}
+.ticker .live{display:flex; align-items:center; gap:7px; padding:0 14px; font-size:11px; letter-spacing:1.5px; color:var(--green); font-weight:700; border-right:1px solid var(--line); height:100%; background:rgba(61,220,108,.05)}
+.ticker-track{display:flex; gap:34px; white-space:nowrap; padding-left:24px; animation:scroll 38s linear infinite; will-change:transform}
+.ticker:hover .ticker-track{animation-play-state:paused}
+@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.tk{display:inline-flex; align-items:baseline; gap:8px; font-family:var(--mono); font-size:12.5px}
+.tk .sym{color:var(--muted)}
+.tk .px{color:var(--text); font-variant-numeric:tabular-nums}
+.tk .chg{font-size:11.5px}
+.tk .up{color:var(--green)} .tk .down{color:var(--red)}
+
+/* ===== section scaffold ===== */
+section{padding:74px 0; position:relative}
+.eyebrow{font-family:var(--mono); font-size:12px; letter-spacing:2.5px; text-transform:uppercase; color:var(--green); margin-bottom:14px; display:flex; align-items:center; gap:10px}
+.eyebrow::before{content:""; width:24px; height:1px; background:var(--green); opacity:.7}
+h2.sec{font-size:clamp(26px,4vw,40px); line-height:1.1; font-weight:700; letter-spacing:-.5px; margin-bottom:14px}
+.lead{color:var(--muted); font-size:17px; max-width:680px}
+.reveal{opacity:0; transform:translateY(18px); transition:opacity .7s ease, transform .7s ease}
+.reveal.in{opacity:1; transform:none}
+
+/* ===== hero ===== */
+.hero{padding-top:58px; padding-bottom:40px}
+.ai-rotor{display:inline-flex; align-items:center; gap:12px; font-family:var(--mono); font-size:13px; color:var(--muted); margin-bottom:22px; border:1px solid var(--line); border-radius:999px; padding:7px 14px; background:rgba(61,220,108,.04)}
+.ai-rotor .rword{color:var(--green); min-width:92px; display:inline-block; font-weight:600}
+.ai-rotor .think{color:var(--muted2); display:inline-flex; gap:3px}
+.ai-rotor .think i{width:4px;height:4px;border-radius:50%;background:var(--green);display:inline-block;opacity:.4;animation:think 1.4s infinite}
+.ai-rotor .think i:nth-child(2){animation-delay:.2s}.ai-rotor .think i:nth-child(3){animation-delay:.4s}
+@keyframes think{0%,100%{opacity:.25;transform:translateY(0)}50%{opacity:1;transform:translateY(-3px)}}
+h1{font-size:clamp(38px,7vw,72px); line-height:.98; font-weight:800; letter-spacing:-1.5px; margin-bottom:18px}
+h1 .accent{color:var(--green); text-shadow:0 0 38px rgba(61,220,108,.45)}
+.hero .sub{font-size:clamp(17px,2.4vw,21px); color:var(--muted); max-width:620px; margin-bottom:30px}
+.hero-cta{display:flex; gap:13px; flex-wrap:wrap; margin-bottom:50px}
+.stats{display:grid; grid-template-columns:repeat(3,1fr); gap:18px; max-width:720px}
+.stat{border:1px solid var(--line); border-radius:14px; padding:22px 20px; background:linear-gradient(180deg,rgba(61,220,108,.04),rgba(255,255,255,.012)); position:relative; overflow:hidden}
+.stat::after{content:""; position:absolute; left:0; top:0; height:2px; width:100%; background:linear-gradient(90deg,var(--green),transparent)}
+.stat .num{font-family:var(--mono); font-size:clamp(28px,5vw,42px); font-weight:700; color:var(--green-bright); letter-spacing:-1px; line-height:1; font-variant-numeric:tabular-nums}
+.stat .lbl{color:var(--muted); font-size:13px; margin-top:8px; letter-spacing:.3px}
+
+/* ===== aggregation viz ===== */
+.viz-grid{display:grid; grid-template-columns:1.4fr .9fr; gap:34px; align-items:center}
+.viz-stage{position:relative; border:1px solid var(--line); border-radius:16px; background:radial-gradient(circle at 70% 50%,rgba(61,220,108,.08),rgba(6,8,7,.4)); overflow:hidden; aspect-ratio:16/11}
+#aggCanvas{display:block; width:100%; height:100%}
+.viz-cap{position:absolute; left:14px; bottom:12px; font-family:var(--mono); font-size:11px; color:var(--muted); letter-spacing:.5px}
+.checklist{list-style:none; display:flex; flex-direction:column; gap:14px}
+.checklist li{display:flex; gap:12px; align-items:flex-start; font-size:15.5px}
+.checklist .ic{flex:0 0 auto; width:22px; height:22px; border-radius:6px; background:rgba(61,220,108,.12); color:var(--green); display:grid; place-items:center; font-size:13px; margin-top:1px}
+.checklist b{font-weight:600}
+.checklist span{color:var(--muted); font-size:13.5px; display:block}
+
+/* ===== xau/cnh spotlight ===== */
+.spotlight{border:1px solid rgba(201,169,110,.28); border-radius:18px; padding:40px; background:linear-gradient(120deg,rgba(201,169,110,.10),rgba(6,8,7,.2) 60%); position:relative; overflow:hidden}
+.spotlight::before{content:""; position:absolute; right:-80px; top:-80px; width:280px; height:280px; border-radius:50%; background:radial-gradient(circle,rgba(201,169,110,.22),transparent 70%)}
+.tag-new{display:inline-flex; align-items:center; gap:7px; font-family:var(--mono); font-size:11px; letter-spacing:1.5px; text-transform:uppercase; color:var(--gold); border:1px solid rgba(201,169,110,.4); border-radius:999px; padding:5px 12px; margin-bottom:16px}
+.spotlight h3{font-size:clamp(24px,3.5vw,34px); letter-spacing:-.5px; margin-bottom:12px}
+.spotlight h3 b{color:var(--gold)}
+.spot-row{display:flex; gap:30px; flex-wrap:wrap; margin-top:26px}
+.spot-row .it{font-family:var(--mono)}
+.spot-row .it .n{font-size:26px; color:var(--gold); font-weight:700}
+.spot-row .it .l{font-size:12.5px; color:var(--muted); letter-spacing:.4px}
+
+/* ===== cards grid ===== */
+.grid3{display:grid; grid-template-columns:repeat(3,1fr); gap:18px}
+.card{border:1px solid var(--line); border-radius:14px; padding:24px; background:linear-gradient(180deg,rgba(255,255,255,.018),rgba(6,8,7,.2)); transition:.22s ease; position:relative}
+.card:hover{border-color:rgba(61,220,108,.4); transform:translateY(-3px); background:linear-gradient(180deg,rgba(61,220,108,.05),rgba(6,8,7,.2))}
+.card .k{font-family:var(--mono); font-size:12px; color:var(--green); letter-spacing:1px; margin-bottom:12px; display:flex; align-items:center; justify-content:space-between}
+.card .badge{font-size:10px; color:var(--gold); border:1px solid rgba(201,169,110,.4); border-radius:999px; padding:2px 8px; letter-spacing:.5px}
+.card h4{font-size:18px; margin-bottom:8px; letter-spacing:-.3px}
+.card p{color:var(--muted); font-size:14px}
+
+/* ===== metrics strip ===== */
+.metrics{display:grid; grid-template-columns:repeat(3,1fr); gap:0; border:1px solid var(--line); border-radius:14px; overflow:hidden; margin-top:30px}
+.metrics .m{padding:26px; text-align:center; border-right:1px solid var(--line)}
+.metrics .m:last-child{border-right:none}
+.metrics .m .n{font-family:var(--mono); font-size:clamp(28px,4vw,40px); font-weight:700; color:var(--green-bright)}
+.metrics .m .l{color:var(--muted); font-size:13px; margin-top:6px}
+
+/* ===== connectivity ===== */
+.pills{display:flex; flex-wrap:wrap; gap:10px; margin-top:8px}
+.pill{font-family:var(--mono); font-size:13px; padding:9px 15px; border:1px solid var(--line); border-radius:10px; color:var(--text); background:rgba(255,255,255,.02)}
+.pill.on{border-color:var(--green); color:var(--green)}
+.cols2{display:grid; grid-template-columns:1fr 1fr; gap:34px; margin-top:8px}
+.cols2 h4{font-size:14px; color:var(--muted); letter-spacing:1px; text-transform:uppercase; margin-bottom:14px; font-family:var(--mono); font-weight:500}
+
+/* ===== syphonix ===== */
+.syph{border:1px solid var(--line); border-radius:18px; padding:40px; background:linear-gradient(120deg,rgba(61,220,108,.06),rgba(6,8,7,.3))}
+.syph .pb{font-family:var(--mono); font-size:12px; color:var(--green); letter-spacing:2px; text-transform:uppercase; margin-bottom:10px}
+.agents{display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-top:26px}
+.agent{border:1px solid var(--line); border-radius:12px; padding:18px; background:rgba(6,8,7,.4)}
+.agent .num{font-family:var(--mono); color:var(--green); font-size:13px; opacity:.6}
+.agent h5{font-size:15px; margin:8px 0 6px}
+.agent p{color:var(--muted); font-size:12.5px}
+
+/* ===== trust ===== */
+.trust{display:flex; flex-wrap:wrap; gap:14px; align-items:stretch}
+.trust .t{flex:1; min-width:220px; border:1px solid var(--line); border-radius:12px; padding:20px; background:rgba(255,255,255,.015); display:flex; gap:13px; align-items:flex-start}
+.trust .t .ic{width:30px;height:30px;border-radius:8px;background:rgba(61,220,108,.12);color:var(--green);display:grid;place-items:center;flex:0 0 auto}
+.trust .t b{display:block; font-size:14.5px; margin-bottom:3px}
+.trust .t span{color:var(--muted); font-size:12.5px}
+
+/* ===== CTA / form ===== */
+.cta-wrap{display:grid; grid-template-columns:1fr 1fr; gap:34px; align-items:start}
+.form-card{border:1px solid var(--line); border-radius:18px; padding:34px; background:linear-gradient(180deg,rgba(61,220,108,.05),rgba(6,8,7,.3))}
+.form-card h3{font-size:24px; letter-spacing:-.4px; margin-bottom:8px}
+.form-card .hint{color:var(--muted); font-size:14px; margin-bottom:22px}
+.field{margin-bottom:14px}
+.field label{display:block; font-size:12px; color:var(--muted); letter-spacing:.5px; margin-bottom:6px; font-family:var(--mono)}
+.field input,.field select,.field textarea{
+  width:100%; background:rgba(4,6,5,.6); border:1px solid var(--line); border-radius:10px; padding:12px 14px;
+  color:var(--text); font-family:var(--sans); font-size:14.5px; transition:.18s;
+}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none; border-color:var(--green); box-shadow:0 0 0 3px rgba(61,220,108,.12)}
+.field.row{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:0}
+.form-card .btn-primary{width:100%; justify-content:center; margin-top:8px; padding:14px}
+.form-msg{margin-top:14px; font-size:13.5px; padding:12px; border-radius:10px; display:none}
+.form-msg.ok{display:block; color:var(--green); background:rgba(61,220,108,.08); border:1px solid var(--line)}
+.form-msg.err{display:block; color:var(--red); background:rgba(224,90,90,.08); border:1px solid rgba(224,90,90,.3)}
+.side-cta{display:flex; flex-direction:column; gap:16px}
+.side-cta .blk{border:1px solid var(--line); border-radius:14px; padding:24px; background:rgba(255,255,255,.015)}
+.side-cta .blk h4{font-size:17px; margin-bottom:6px}
+.side-cta .blk p{color:var(--muted); font-size:13.5px; margin-bottom:14px}
+
+/* ===== footer ===== */
+footer{border-top:1px solid var(--line); padding:40px 0; color:var(--muted2); font-size:12.5px}
+.foot-top{display:flex; justify-content:space-between; align-items:center; gap:20px; flex-wrap:wrap; margin-bottom:22px}
+.foot-link{color:var(--green); font-family:var(--mono); font-size:13px}
+.disc{font-size:11.5px; color:var(--muted2); line-height:1.6; max-width:760px}
+
+/* ===== responsive ===== */
+@media (max-width:880px){
+  .viz-grid,.cta-wrap,.cols2{grid-template-columns:1fr}
+  .grid3,.agents{grid-template-columns:1fr 1fr}
+  .stats{grid-template-columns:1fr 1fr 1fr}
+  .topbar .event-pill{display:none}
+  section{padding:54px 0}
+}
+@media (max-width:560px){
+  .grid3,.agents,.metrics,.stats{grid-template-columns:1fr 1fr}
+  .field.row{grid-template-columns:1fr; gap:0}
+  .topbar .btn span{display:none}
+  h1{letter-spacing:-1px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important; transition:none!important}}
+
+/* ============================================================
+   THE LIQUIDITY ENGINE — visual upgrade layer
+   ============================================================ */
+
+/* hero particle background canvas */
+.hero{position:relative}
+#heroCanvas{position:absolute; inset:0; width:100%; height:100%; z-index:0; pointer-events:none; opacity:.9}
+.hero .wrap{position:relative; z-index:2}
+
+/* glassmorphism on cards */
+.stat,.card,.blk,.form-card,.agent,.metrics,.viz-stage,.syph,.trust .t{
+  backdrop-filter:blur(16px) saturate(120%); -webkit-backdrop-filter:blur(16px) saturate(120%);
+}
+.stat,.card,.blk,.agent,.trust .t{
+  background:linear-gradient(160deg,rgba(255,255,255,.055),rgba(255,255,255,.012) 42%,rgba(6,8,7,.25));
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.07), 0 18px 50px -28px rgba(0,0,0,.85);
+}
+.card:hover{box-shadow:inset 0 1px 0 rgba(92,232,128,.25), 0 26px 60px -28px rgba(61,220,108,.4)}
+
+/* hero stat cards — glass + parallax tilt */
+.stats{perspective:900px}
+.stat{transform-style:preserve-3d; transition:transform .18s ease, box-shadow .25s ease; will-change:transform; border-color:rgba(61,220,108,.22)}
+.stat .num{text-shadow:0 0 26px rgba(61,220,108,.4)}
+.stat .glow{position:absolute; inset:-1px; border-radius:14px; pointer-events:none;
+  background:radial-gradient(220px 120px at var(--mx,50%) var(--my,0%),rgba(61,220,108,.18),transparent 60%); opacity:0; transition:opacity .3s}
+.stat:hover .glow{opacity:1}
+
+/* decode headline */
+h1 .line{display:block; position:relative}
+h1 .scramble{color:var(--green-dim); opacity:.75}
+.caret{display:inline-block; width:.6ch; color:var(--green); animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+
+/* XAU/CNH — black gold + metallic sweep */
+.spotlight{
+  background:linear-gradient(120deg,rgba(201,169,110,.16),rgba(20,15,6,.5) 55%,rgba(6,8,7,.3));
+  border-color:rgba(201,169,110,.4); box-shadow:0 30px 80px -40px rgba(201,169,110,.4), inset 0 1px 0 rgba(229,201,138,.2);
+}
+.spotlight .sweep{position:absolute; inset:0; pointer-events:none; overflow:hidden; border-radius:18px}
+.spotlight .sweep::after{content:""; position:absolute; top:-60%; left:-30%; width:40%; height:220%;
+  background:linear-gradient(105deg,transparent,rgba(229,201,138,.0) 35%,rgba(255,238,200,.45) 50%,rgba(229,201,138,0) 65%,transparent);
+  transform:rotate(8deg); animation:sweep 5.5s ease-in-out infinite; filter:blur(2px)}
+@keyframes sweep{0%{left:-40%}55%{left:130%}100%{left:130%}}
+.spotlight .it .n{text-shadow:0 0 22px rgba(201,169,110,.5)}
+
+/* Proof of speed — Ping Syphon Core terminal */
+.ping{margin-top:30px; border:1px solid var(--line); border-radius:16px; overflow:hidden;
+  background:linear-gradient(180deg,rgba(6,10,8,.92),rgba(6,8,7,.96)); backdrop-filter:blur(10px)}
+.ping-bar{display:flex; align-items:center; gap:8px; padding:11px 16px; border-bottom:1px solid var(--line); background:rgba(255,255,255,.025)}
+.ping-bar .d{width:11px;height:11px;border-radius:50%}
+.ping-bar .d1{background:#e05a5a}.ping-bar .d2{background:#d9b34a}.ping-bar .d3{background:var(--green-dim)}
+.ping-bar .ttl{font-family:var(--mono); font-size:12px; color:var(--muted); margin-left:6px; letter-spacing:.5px}
+.ping-body{padding:18px 18px 20px; font-family:var(--mono); font-size:13px; min-height:118px}
+.ping-line{color:var(--muted); white-space:pre-wrap; line-height:1.7}
+.ping-line .ok{color:var(--green)} .ping-line .dim{color:var(--muted2)}
+.ping-prog{height:6px; border-radius:4px; background:rgba(255,255,255,.06); margin:12px 0 14px; overflow:hidden}
+.ping-prog i{display:block; height:100%; width:0; background:linear-gradient(90deg,var(--green-dim),var(--green-bright)); box-shadow:0 0 14px rgba(61,220,108,.6); transition:width .12s linear}
+.ping-result{display:flex; gap:26px; flex-wrap:wrap; opacity:0; transform:translateY(6px); transition:.4s}
+.ping-result.show{opacity:1; transform:none}
+.ping-result .r .v{font-size:24px; font-weight:700; color:var(--green-bright); text-shadow:0 0 20px rgba(61,220,108,.5)}
+.ping-result .r .k{font-size:11px; color:var(--muted); letter-spacing:.5px}
+.ping-cta{display:flex; align-items:center; gap:14px; flex-wrap:wrap; margin-top:6px}
+.ping-cta .btn{padding:11px 20px}
+.ping-cta .hint{font-family:var(--mono); font-size:11.5px; color:var(--muted2)}
+
+/* build marker */
+</style>
+</head>
+<body>
+<!-- ===================== TOP BAR ===================== -->
+<header class="topbar">
+  <img class="logo" src="assets/xsyphon-logo.png" alt="xSyphon">
+  <span class="event-pill"><span class="dot"></span> Live at <b>iFX EXPO Cyprus</b> · Booth <b>76</b> · Jun 16–18, 2026</span>
+  <span class="spacer"></span>
+  <a class="btn btn-ghost" href="#contact">Leave details</a>
+  <a class="btn btn-primary" id="bookTop" href="#contact">📅 <span>Book a meeting</span></a>
+</header>
+
+<!-- ===================== TICKER ===================== -->
+<div class="ticker" aria-hidden="true">
+  <span class="live"><span class="dot"></span> LIVE</span>
+  <div class="ticker-track" id="tickerTrack"></div>
+</div>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero">
+  <canvas id="heroCanvas" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <div class="ai-rotor">
+      <span>AI engine</span>
+      <span class="rword" id="rword">Pricing</span>
+      <span class="think">thinking<i></i><i></i><i></i></span>
+    </div>
+    <h1 id="decodeHead">
+      <span class="line" data-text="Built on Depth.">Built on Depth.</span>
+      <span class="line accent" data-text="Defined by Precision.">Defined by Precision.</span>
+    </h1>
+    <p class="sub">One gateway to global liquidity — AI-driven, institutional-grade pricing across FX, precious metals and crypto CFDs. Deep aggregation, zero last look, 5ms execution.</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="#contact">📅 Book a meeting at the booth</a>
+      <a class="btn btn-ghost" href="#why">Why brokers switch →</a>
+    </div>
+    <div class="stats" id="statTilt">
+      <div class="stat"><span class="glow"></span><div class="num" data-count="1" data-suffix="B+" data-prefix="$">$0</div><div class="lbl">Daily notional volume</div></div>
+      <div class="stat"><span class="glow"></span><div class="num" data-count="12" data-suffix="">0</div><div class="lbl">Tier-1 prime brokers</div></div>
+      <div class="stat"><span class="glow"></span><div class="num" data-count="5" data-suffix="ms">0</div><div class="lbl">Median execution</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== AGGREGATION VIZ ===================== -->
+<section id="how">
+  <div class="wrap">
+    <div class="eyebrow reveal">Smart liquidity routing</div>
+    <h2 class="sec reveal">Smarter Liquidity, Seamlessly Connected.</h2>
+    <p class="lead reveal" style="margin-bottom:38px">xSyphon sits between the market's deepest liquidity pools and your trading operations — aggregating, optimising and delivering best execution on every tick.</p>
+    <div class="viz-grid">
+      <div class="viz-stage reveal">
+        <canvas id="aggCanvas"></canvas>
+        <div class="viz-cap">12+ Tier-1 LPs → xSyphon aggregation core → your flow</div>
+      </div>
+      <ul class="checklist reveal">
+        <li><span class="ic">✓</span><div><b>Best price on every tick</b><span>Our smart router selects the tightest two-way price across the full pool, continuously.</span></div></li>
+        <li><span class="ic">✓</span><div><b>Zero last look</b><span>No games. Just fills. What you see is what you get — no hidden rejections.</span></div></li>
+        <li><span class="ic">✓</span><div><b>99.7% fill ratio</b><span>Firm liquidity through major events. We widen, we don't withdraw.</span></div></li>
+        <li><span class="ic">✓</span><div><b>&lt;1% rejection · 99.98% uptime</b><span>Co-located at LD4, NY4, TY3 and SG1 for deterministic, low-latency routing.</span></div></li>
+      </ul>
+    </div>
+
+    <div class="ping reveal" id="ping">
+      <div class="ping-bar">
+        <span class="d d1"></span><span class="d d2"></span><span class="d d3"></span>
+        <span class="ttl">syphon-core://execution-engine</span>
+      </div>
+      <div class="ping-body">
+        <div class="ping-line" id="pingLog"><span class="dim">$ ready — tap below to route a test order through the engine.</span></div>
+        <div class="ping-prog" id="pingProg" style="display:none"><i></i></div>
+        <div class="ping-result" id="pingResult">
+          <div class="r"><div class="v" id="rLat">—</div><div class="k">Execution</div></div>
+          <div class="r"><div class="v" id="rSlip">—</div><div class="k">Slippage</div></div>
+          <div class="r"><div class="v" id="rRoute">—</div><div class="k">Best of</div></div>
+          <div class="r"><div class="v" id="rStatus">—</div><div class="k">Status</div></div>
+        </div>
+      </div>
+      <div class="ping-bar" style="border-top:1px solid var(--line);border-bottom:none">
+        <div class="ping-cta">
+          <button class="btn btn-primary" id="pingBtn">▸ Ping Syphon Core</button>
+          <span class="hint">Live simulation · illustrative</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== XAU/CNH SPOTLIGHT ===================== -->
+<section id="xaucnh">
+  <div class="wrap">
+    <div class="spotlight reveal">
+      <span class="sweep"></span>
+      <span class="tag-new">★ Exclusive · New</span>
+      <h3>Trade <b>XAU/CNH</b> — Gold vs Offshore Renminbi, 24/5.</h3>
+      <p class="lead">Deep, streaming gold liquidity against the offshore yuan with institutional STP execution from as little as 50 g. A rare instrument most LPs simply don't quote — and a direct edge for your Asian institutional flow.</p>
+      <div class="spot-row">
+        <div class="it"><div class="n">50 g</div><div class="l">Minimum size</div></div>
+        <div class="it"><div class="n">24/5</div><div class="l">Trading hours</div></div>
+        <div class="it"><div class="n">STP</div><div class="l">Straight-through execution</div></div>
+        <div class="it"><div class="n">1 g</div><div class="l">Step size</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== WHY BROKERS SWITCH ===================== -->
+<section id="why">
+  <div class="wrap">
+    <div class="eyebrow reveal">Why brokers switch to xSyphon</div>
+    <h2 class="sec reveal">No games. Just fills.</h2>
+    <p class="lead reveal" style="margin-bottom:38px">Tight spreads, fast execution, no surprises — delivered on infrastructure built for institutional performance.</p>
+    <div class="grid3">
+      <div class="card reveal"><div class="k">EXECUTION</div><h4>Zero last look</h4><p>Firm, streaming depth-of-book with no last-look delays or requotes on any G10 pair. Spreads from 0.2 pips.</p></div>
+      <div class="card reveal"><div class="k">ONBOARDING</div><h4>Live in 5–10 days</h4><p>Signed agreement to production in 5–10 business days. We handle FIX config, API keys and UAT on both sides.</p></div>
+      <div class="card reveal"><div class="k">CONNECTIVITY</div><h4>MT4 / MT5 + White Label</h4><p>Bridge directly into your existing MT4/MT5 server — or run a branded white-label GUI. No platform replacement.</p></div>
+      <div class="card reveal"><div class="k">PRIME-OF-PRIME</div><h4>Tier-1 access, fractional cost</h4><p>PoP gives mid-sized institutions tier-1 bank liquidity, clearing and credit without direct prime relationships.</p></div>
+      <div class="card reveal"><div class="k">PARTNERSHIP <span class="badge">Most popular</span></div><h4>Transparent revenue share</h4><p>Competitive revenue share on referred volume, dedicated account manager, co-branded materials, no minimum commitment.</p></div>
+      <div class="card reveal"><div class="k">COVERAGE</div><h4>50+ instruments, one feed</h4><p>FX majors, EM, precious metals and crypto CFDs on a single connection. One API, one counterparty, full stack.</p></div>
+    </div>
+    <div class="metrics reveal">
+      <div class="m"><div class="n">99.7%</div><div class="l">Fill ratio</div></div>
+      <div class="m"><div class="n">&lt;1%</div><div class="l">Rejection rate</div></div>
+      <div class="m"><div class="n">99.98%</div><div class="l">Uptime SLA</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CONNECTIVITY ===================== -->
+<section id="connect">
+  <div class="wrap">
+    <div class="eyebrow reveal">Connectivity</div>
+    <h2 class="sec reveal">Connect through any protocol or platform.</h2>
+    <div class="cols2">
+      <div class="reveal">
+        <h4>Protocols</h4>
+        <div class="pills">
+          <span class="pill on">FIX 4.4</span><span class="pill on">REST</span><span class="pill on">WebSocket</span><span class="pill on">MT4 bridge</span><span class="pill on">MT5 gateway</span><span class="pill">Custom GUI</span>
+        </div>
+        <h4 style="margin-top:26px">Co-location</h4>
+        <div class="pills">
+          <span class="pill">LD4 · London</span><span class="pill">NY4 · New York</span><span class="pill">TY3 · Tokyo</span><span class="pill">SG1 · Singapore</span>
+        </div>
+      </div>
+      <div class="reveal">
+        <h4>Asset classes</h4>
+        <div class="pills">
+          <span class="pill">G10 FX majors</span><span class="pill">EM FX</span><span class="pill">XAU/USD · XAG · XPT</span><span class="pill" style="border-color:rgba(201,169,110,.4);color:var(--gold)">XAU/CNH</span><span class="pill">Crypto CFDs 24/7</span>
+        </div>
+        <h4 style="margin-top:26px">Leverage</h4>
+        <div class="pills">
+          <span class="pill">FX up to 1:200</span><span class="pill">Crypto CFD 10:1</span><span class="pill">Configurable margin tiers</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== POWERED BY SYPHONIX ===================== -->
+<section id="syphonix">
+  <div class="wrap">
+    <div class="syph reveal">
+      <div class="pb">Powered by Syphonix</div>
+      <h2 class="sec" style="margin-bottom:8px">An AI-enhanced trading stack under one roof.</h2>
+      <p class="lead">xSyphon runs on Syphon OS — an AI-optimised execution engine with a <b class="green">0.8ms</b> intelligent routing core and four specialist agents working every tick.</p>
+      <div class="agents">
+        <div class="agent"><div class="num">01</div><h5>Pricing</h5><p>Adaptive spreads & skew, refined in real time from flow and instrument behaviour.</p></div>
+        <div class="agent"><div class="num">02</div><h5>Routing</h5><p>Best execution path selection across 12+ tier-1 and regional liquidity sources.</p></div>
+        <div class="agent"><div class="num">03</div><h5>Risk</h5><p>Predictive exposure monitoring, automated hedging and pre-trade checks.</p></div>
+        <div class="agent"><div class="num">04</div><h5>Liquidity</h5><p>Continuous LP scoring to keep the deepest, firmest pool in front of your flow.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TRUST ===================== -->
+<section id="trust" style="padding-top:0">
+  <div class="wrap">
+    <div class="trust">
+      <div class="t reveal"><span class="ic">⚖︎</span><div><b>Regulated — FSC Mauritius</b><span>xSyphon Ltd, License No. GB25204632. Compliant with MiFID II &amp; UK FCA frameworks.</span></div></div>
+      <div class="t reveal"><span class="ic">⚡</span><div><b>Institutional infrastructure</b><span>Sub-millisecond routing core, 99.98% uptime, co-located across four global data centres.</span></div></div>
+      <div class="t reveal"><span class="ic">🔒</span><div><b>Firm execution, full reporting</b><span>Zero last look, MiFID II reporting, millisecond-timestamped audit trail on every trade.</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CTA / CONTACT ===================== -->
+<section id="contact">
+  <div class="wrap">
+    <div class="eyebrow reveal">Let's talk at the booth</div>
+    <h2 class="sec reveal">Get a tailored connectivity proposal.</h2>
+    <p class="lead reveal" style="margin-bottom:38px">Leave your details and our liquidity desk follows up within 24 hours — or book a slot to meet us at Booth 76, iFX EXPO Cyprus.</p>
+    <div class="cta-wrap">
+      <form class="form-card reveal" id="leadForm" action="https://formspree.io/f/FORMSPREE_ID" method="POST">
+        <h3>Speak with our liquidity desk</h3>
+        <p class="hint">For institutional &amp; professional clients only.</p>
+        <input type="hidden" name="event" value="iFX EXPO Cyprus 2026">
+        <input type="hidden" name="_subject" value="New lead — iFX EXPO Cyprus 2026">
+        <div class="field row">
+          <div class="field"><label>First name</label><input name="first_name" required autocomplete="given-name"></div>
+          <div class="field"><label>Last name</label><input name="last_name" required autocomplete="family-name"></div>
+        </div>
+        <div class="field"><label>Company</label><input name="company" required autocomplete="organization"></div>
+        <div class="field"><label>Work email</label><input type="email" name="email" required autocomplete="email"></div>
+        <div class="field"><label>Your role</label>
+          <select name="role">
+            <option value="">Select…</option>
+            <option>Broker — C-level / Owner</option>
+            <option>Head of Trading / Dealing</option>
+            <option>CTO / Technical</option>
+            <option>Hedge fund / Prop firm</option>
+            <option>PoP / Institution</option>
+            <option>IB / Referral partner</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="field"><label>What are you looking for?</label>
+          <select name="interest">
+            <option value="">Select…</option>
+            <option>FX &amp; metals liquidity</option>
+            <option>XAU/CNH (gold vs CNH)</option>
+            <option>Crypto CFD liquidity</option>
+            <option>MT4 / MT5 bridge</option>
+            <option>White label</option>
+            <option>Prime-of-Prime</option>
+            <option>Referral / revenue share</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Request proposal →</button>
+        <div class="form-msg" id="formMsg"></div>
+      </form>
+      <div class="side-cta">
+        <div class="blk reveal">
+          <h4>📅 Book a meeting</h4>
+          <p>Grab a 20-minute slot with us during the expo — pricing, connectivity and onboarding.</p>
+          <a class="btn btn-primary" id="bookCal" href="CALENDLY_URL" target="_blank" rel="noopener">Open calendar →</a>
+        </div>
+        <div class="blk reveal">
+          <h4>💾 Save our contact</h4>
+          <p>Add xSyphon to your phone now, so you remember us after the floor closes.</p>
+          <a class="btn btn-ghost" href="xsyphon.vcf" download>Add to contacts</a>
+        </div>
+        <div class="blk reveal">
+          <h4>🌐 Explore the full platform</h4>
+          <p>Markets, connectivity, analytics and the partner program.</p>
+          <a class="btn btn-ghost" href="https://xsyphon.com" target="_blank" rel="noopener">xsyphon.com →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <img class="logo" src="assets/xsyphon-logo.png" alt="xSyphon" style="height:22px">
+      <a class="foot-link" href="https://xsyphon.com" target="_blank" rel="noopener">Explore full platform → xsyphon.com</a>
+    </div>
+    <p class="disc">xSyphon Ltd is authorized and regulated by the Financial Services Commission of Mauritius (FSC) under License No. GB25204632, and complies with MiFID II and UK FCA frameworks. For institutional and professional clients only. Trading involves risk. Live market data shown on this page is illustrative. © 2026 xSyphon Ltd. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="config.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
